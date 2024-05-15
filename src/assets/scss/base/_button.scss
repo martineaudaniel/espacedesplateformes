@@ -144,3 +144,8 @@
 .darkmode .button.type-secondary {
   color: var(--neutral-100);
 }
+
+/* New LanguageButton Subclass */
+.button.LanguageButton {
+  border-radius: 0.375rem;
+}
