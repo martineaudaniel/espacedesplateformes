@@ -1,0 +1,55 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '15', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Obsolescence',
+  subtitle: '',
+  description: `Un produit, système ou service est défini comme obsolescent lorsque sa vie utile est raccourcie de quelconque manière par rapport à ce qu’elle pourrait être. Obsolescence L’obsolescence, souvent employée comme stratégie de vente, est un véritable fléau pour l’environnement, créant des millions de tonnes de déchets qui pourraient être évités. Les designers qui conçoivent les produits et les entreprises qui les produisent ont une part de responsabilité importante, mais en tant que consommateur, nous avons aussi notre rôle à jouer. Lors de l’achat de nouveaux produits, il est primordial de vérifier la durabilité du produit, de s’assurer que nous achetons un produit que nous utiliserons encore dans plusieurs années et que son esthétique perdurera. Les produits électroniques qui offrent la possibilité de remplacer les pièces défectueuses ou moins performantes sont à prioriser. Obsolescence matérielle Obsolescence économique Obsolescence psychologique Obsolescence fonctionnelle Obsolescence systémique Lorsqu’un produit ou une de ses parties est fait avec des matériaux de piètre qualité ou du design de mauvaise qualité qui se brisera avant le reste des composantes du produit ou prématurément. Lorsqu’il est plus profitable au consommateur de remplacer un produit que de le faire réparer. Le changement rapide de modèle ou de technologies pousse les acheteurs à sans cesse vouloir se procurer le dernier modèle afin d’être à jour avec la nouvelle tendance. L’introduction rapide de nouvelles technologies rend les nouveaux modèles de produits beaucoup plus intéressants et encourage les consommateurs à changer de modèle de produit avant la fin de la vie utile de celui-ci. Surtout utilisé avec les produits électroniques tels les cellulaires. De trop grands changements de systèmes peuvent rendre un produit ou une technologie inutilisable. Cela inclut les systèmes qui ralentissent dû à des mises à jour substantielles. Il peut aussi s’agir de nouveaux éléments qui ne sont plus compatibles avec l’ancienne génération. Guiltinan, J. Creative Destruction and Destructive Creations: Environmental Ethics and Planned Obsolescence. J Bus Ethics 89 (Suppl 1), 19–28 (2009). https://doi.org/10.1007/s10551- 008-9907-9 Penty, J. (2019). Product Design and Sustainability: Strategies, Tools and Practice (1st ed.). Routledge. https://doi.org/10.4324/9780203732076 Rivera, J., Lallmahomed, A. (2016) Environmental implications of planned obsolescence and product lifetime: a literature review. International Journal of Sustainable Engineering vol.9 no.2. 119-129. DOI: 10.1080/19397038.2015.1099757`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

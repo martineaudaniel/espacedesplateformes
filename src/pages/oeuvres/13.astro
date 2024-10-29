@@ -1,0 +1,57 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '13', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Mi papá y el hombre del paquete 10 vignettes, 46 x 46 cm chacune, noir et blanc',
+  subtitle: 'Darién Sánchez',
+  description: `Les vignettes de Darién Sánchez proposent des réflexions critiques sur des situations issues d’expériences de la vie quotidienne à Cuba. Dans Mon père et l’homme d’El Paquete, il s’intéresse à la distribution, au contenu et à la réception d’El Paquete Semanal (Le paquet hebdomadaire) à Cuba : une manière alternative de faire circuler l’information dans un contexte où l’accès à l’internet est encore complexe. Ce n’est que récemment que Cuba a connu une évolution vers un meilleur accès aux données mobiles permettant aux citoyens de publier et d’écouter des vidéos. C’est pourquoi le fait de disposer d’une connexion Wi-Fi à domicile et d’un compte Netflix est encore considéré comme un privilège, et le piratage est devenu une pratique naturalisée sur l’île. Racontées du point de vue de la famille de l’artiste, ces histoires reflètent le déséquilibre croissant des pouvoirs et les défis posés par le fossé numérique dans la Cuba contemporaine. La nature intermédiale de Mi papá y el hombre del paquete relie la vignette Instagram aux films et séries télévisées contemporains. L’humour est un outil politique dans le travail de l’artiste, et l’espace domestique représente souvent des conflits entre différentes générations vivant dans un pays changé où l’utopie de la révolution a évolué de manière spectaculaire. Designer, animateur et artiste visuel, Sánchez utilise Instagram comme principale plateforme pour promouvoir sa pratique créatrice. Son contenu numérique est également disponible sur des réseaux tels que Giphy et Canva.
+
+ @dariensanchez_ giphy.com/darienson canva.com/p/dariensan/`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

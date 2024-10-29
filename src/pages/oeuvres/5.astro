@@ -1,0 +1,63 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '5', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Scènes du déclic',
+  subtitle: '',
+  description: `« Ouais. Parce que (cette scène de Vampire Diaries) vraiment, ça m’avait bien poigné. » (Mitch, 25 ans) 
+
+Les séries comportent parfois des histoires ou dialogues qui nous marquent, qui nous renvoient à nos vies, notre passé ou notre futur souhaité. Certaines scènes font déclic, s’installent doucement ou frontalement dans notre quotidien, puis dans nos souvenirs et récits de vie. Dans le cadre du projet Expériences des séries et construction identitaire, financé par le Conseil de recherche en sciences humaines du Canada (CRSH), une équipe universitaire de l’UQAM s’est intéressée à cerner le rôle que les jeunes adultes (18- 25 ans) attribuent à l’expérience des séries dans leur processus de construction identitaire, et notamment à leurs aspects narratifs et esthétiques. Il s’agit ici d’une rencontre entre l’univers fictif et celui de la réception; d’un moment de déclic : une scène qui déclenche quelque chose; une scène qui est souvent réécoutée et parfois réconforte, dans tous les cas, une scène qui marque et s’imprime dans le récit personnel. 
+
+Cette installation vous invite à plonger dans l’univers du déclic de plusieurs personnes interviewées dont vous entendez la voix originale. Leurs noms ont été changés et la tonalité de leur voix légèrement modifiée pour préserver leur anonymat. 
+
+Conception et recherche : Christine Thoër et Katharina Niemeyer Montage sonore : Ezra Teboul Équipe : Sarah Blémur, Celina van Dembroucke, Chloé Charrette-Lalonde, Dimitra Laurence Larochelle, Catherine Montgomery, Ludovik Roy.
+
+ Scènes du déclic: https://series.uqam.ca/exposition/`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

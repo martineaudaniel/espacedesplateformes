@@ -1,0 +1,73 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '8', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Vidéos de YouTubers',
+  subtitle: '',
+  description: `AMBIANCE
+
+Ambiance - Hannibal's Office (drawing, fireplace, music) par Ambiance Magic
+https://www.youtube.com/watch?v=aKugpx4_Wi0
+
+In the Impala with Sam and Dean (focus, relax, sleep) par Adri’s Ambience
+https://www.youtube.com/watch?v=-GI5zOEO4w4
+
+ASMR
+
+Daryl Dixon Saves You ASMR Walking Dead Roleplay par Jimち ASMR
+https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s
+ 
+Dunder Mifflin, This is Pam ! par Gibi ASMR
+https://www.youtube.com/watch?v=3HGKju4kUNc
+ 
+ 
+SHIFTING
+
+Reality shift to Euphoria subliminal par Divine Subliminals
+https://www.youtube.com/watch?v=ktYhy5PyjhI
+ 
+SQUID GAME - Méditation guidée français SHIFTING et RÊVES LUCIDES - ALICE IN BORDERLAND Method par L’ermite des songes
+https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s
+`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

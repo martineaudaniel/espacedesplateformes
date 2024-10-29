@@ -1,0 +1,55 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '10', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Les plateformes à domicile',
+  subtitle: '',
+  description: `Tout espace est structuré par nous, mais aussi il organise nos comportements. Avec la pandémie de COVID-19, l’espace du domicile prend une place de relief, car il se réagence en se resserrant sur les expériences individuelles liées aux écrans, qui nous permettent d’avoir accès aux plateformes et à de multiples mondes, fictionnels, ludiques ou réels. Des générations entières habiteront en télétravail ces bureaux qui servent aussi comme des environnements de divertissement. «La Télévision nous redonnera le goût du foyer », remarquait le journaliste Jean Thévénot en 1946. Cependant, ce « goût du foyer » n’est pas à la portée de tout le monde : la pauvreté, le manque de ressources d’alphabétisation et d’électricité entretiennent un fossé numérique, ou l’écart existant entre les pays développés et les pays en voie de développement, en matière d’accès aux technologies de l’information et de la communication persiste au point que, selon The Guardian, plus d’un tiers de la population mondiale n’a jamais utilisé Internet.`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

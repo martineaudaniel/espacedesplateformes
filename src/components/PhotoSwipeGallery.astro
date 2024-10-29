@@ -1,0 +1,44 @@
+---
+// src/components/PhotoSwipeGallery.astro
+import 'photoswipe/style.css'
+
+const { images } = Astro.props // Accept images as a prop
+---
+
+<div class="grid grid-cols-2 gap-4" id="photoswipe-gallery">
+  {
+    images.map((image, index) => (
+      <a key={index} href={image} class="gallery-item">
+        <img src={image} alt={`Artwork ${index + 1}`} class="h-auto w-full cursor-pointer rounded-lg shadow" />
+      </a>
+    ))
+  }
+</div>
+
+<script>
+  import PhotoSwipeLightbox from 'photoswipe/lightbox'
+
+  function setImageDimensions() {
+    const galleryItems = document.querySelectorAll('#photoswipe-gallery .gallery-item')
+    galleryItems.forEach((item) => {
+      const img = item.querySelector('img')
+      const image = new Image()
+      image.src = img.src
+      image.onload = () => {
+        item.setAttribute('data-pswp-width', image.width)
+        item.setAttribute('data-pswp-height', image.height)
+      }
+    })
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setImageDimensions()
+
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '#photoswipe-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    })
+    lightbox.init()
+  })
+</script>

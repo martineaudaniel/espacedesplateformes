@@ -1,0 +1,55 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '11', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'La télécommande',
+  subtitle: '',
+  description: `Non sans controverse, le réalisateur Peter Greenaway déclare en 2007: «Cinema’s death date was 31 September 1983, when the remote-control zapper was introduced to the living room, because now cinema has to be interactive, multi-media art. » Le cinéaste évoquait la nécessité de repenser tous les médias pour qu’ils puissent survivre à l’ère du numérique et de l’interactivité, potentiellement meurtriers pour le spectacle traditionnel en salle. La télécommande que nous voyons dans cette vitrine, par exemple, intègre désormais des boutons nous donnant un accès direct à certaines plateformes. L’idée d’éloignement ou de contrôle à distance, un des piliers des pratiques de visionnage de télévision alors qu’elle n’est plus restreinte aux pratiques linéaires, renforce et facilite l’accès aux contenus qui sont de plus en plus nombreux, tout en normalisant le multitasking et facilitant l’immobilité. Fonctionnelle à notre choix et de contrôle, telle une extension de nos corps, au même titre que les téléphones portables, suivant le concept de Marshall McLuhan, elle devient une partie intégrante de nos rituels de consommation. Mais jusqu’où peut vraiment aller la liberté de choix et le contrôle par rapport à un contenu qui, à l’ère des algorithmes, nous est souvent déjà fourni, selon les traces de nos consommations précédentes ?`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>
