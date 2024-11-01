@@ -1,0 +1,62 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '3', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'La Fin des Paillassons',
+  subtitle: 'Clémentine Brochet et Tara Karmous',
+  description: `Ce projet tente de répondre à une problématique encore souvent ignorée dans les musées : l’histoire de l’art est une histoire d’hommes écrite par des hommes et généralement destinée aux hommes. Cependant, les femmes, en plus de d’autres minorités, ont bel et bien participé à la production des œuvres les plus emblématiques en Occident. Il est temps de les voir et de les écouter. Pour ce premier prototype, nous nous sommes concentrées sur quelques femmes qui ont entretenu une relation avec le peintre Pablo Picasso. À travers trois de ses œuvres, vous rencontrerez Olga Khokhlova, Marie-Thérèse Walter et Dora Maar. Toutes trois ont été plus que des muses posant passivement pour le peintre en influençant son travail. La Fin des paillassons vous invite aussi à découvrir comment la vie de ces trois femmes a été marquée par cette relation. Grâce à la réalité augmentée, il est possible de redonner une voix à ces figures oubliées ou déformées par le célèbre artiste. • Mettez le casque d’écoute sur vos oreilles • Ouvrez l’application La Fin des paillassons sur le téléphone • Pointez le tableau qui vous intéresse • Bonne expérience ! Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de paroles rapportées, à quelques exceptions près. Toutefois, le contenu a été largement documenté pour proposer une interprétation aussi fidèle que possible des faits mentionnés. 
+ATTENTION : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page1 
+
+1Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide. Le tableau représentant Dora Maar traite de la violence domestique.`,
+  images: [
+    '/assets/img/la-fin-des-paillassons/1.jpg',
+    '/assets/img/la-fin-des-paillassons/2.jpg',
+    '/assets/img/la-fin-des-paillassons/3.jpg',
+  ],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

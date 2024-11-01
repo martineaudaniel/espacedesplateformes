@@ -1,0 +1,91 @@
+---
+// src/components/LanguageSwitcher.astro
+
+const currentPath = Astro.url.pathname
+const currentLang = currentPath.startsWith('/fr') ? 'fr' : 'en'
+
+const languages = [
+  { lang: 'en', label: 'En', flag: '/icons/en.svg' },
+  { lang: 'fr', label: 'Fr', flag: '/icons/fr.svg' },
+]
+
+const togglePath = (lang) => currentPath.replace(`/${currentLang}/`, `/${lang}/`)
+---
+
+<div class="relative inline-block">
+  <!-- Active Language Button with existing button styles -->
+  <button data-dropdown-button class="button LanguageDropdownButton has-icon p-2">
+    <img src={languages.find((l) => l.lang === currentLang).flag} alt="" class="h-5 w-5" />
+    <span>{languages.find((l) => l.lang === currentLang).label}</span>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown Menu -->
+  <ul
+    data-dropdown-menu
+    class="dropdown-menu absolute right-0 z-10 mt-2 hidden w-36 rounded-md border border-gray-200 bg-white shadow-lg dark:border-neutral-600 dark:bg-neutral-800"
+  >
+    {
+      languages.map(({ lang, label, flag }) =>
+        lang !== currentLang ? (
+          <li key={lang} class="p-2 hover:bg-gray-100 dark:hover:bg-neutral-700">
+            <a href={togglePath(lang)} class="flex items-center space-x-2 text-gray-900 dark:text-gray-100">
+              <img src={flag} alt="" class="h-5 w-5" />
+              <span>{label}</span>
+            </a>
+          </li>
+        ) : null
+      )
+    }
+  </ul>
+</div>
+
+<script>
+  function initializeDropdown() {
+    const dropdownButton = document.querySelector('[data-dropdown-button]')
+    const dropdownMenu = document.querySelector('[data-dropdown-menu]')
+    let isDropdownOpen = false
+
+    console.log('Initializing dropdown')
+
+    // Define the toggleDropdown function first
+    function toggleDropdown(event) {
+      event.stopPropagation() // Prevent immediate outside close
+      isDropdownOpen = !dropdownMenu.classList.contains('hidden')
+      dropdownMenu.classList.toggle('hidden')
+      console.log('Dropdown toggle clicked', isDropdownOpen)
+    }
+
+    // Define preventClose to prevent closing when interacting with dropdown
+    function preventClose(event) {
+      event.stopPropagation()
+    }
+
+    // Remove any existing event listeners to prevent duplicates
+    dropdownButton?.removeEventListener('click', toggleDropdown)
+    dropdownMenu?.removeEventListener('click', preventClose)
+
+    if (dropdownButton && dropdownMenu) {
+      dropdownButton.addEventListener('click', toggleDropdown)
+      dropdownMenu.addEventListener('click', preventClose)
+
+      // Document click listener to close dropdown
+      document.addEventListener('click', (event) => {
+        if (!isDropdownOpen) return
+
+        if (!dropdownMenu.contains(event.target) && !dropdownButton.contains(event.target)) {
+          dropdownMenu.classList.add('hidden')
+          isDropdownOpen = false
+          console.log('Dropdown closed by outside click')
+        }
+      })
+    } else {
+      console.log('Dropdown elements not found')
+    }
+  }
+
+  // Re-initialize on each page load (including navigations within SPA context)
+  document.addEventListener('astro:page-load', initializeDropdown)
+</script>

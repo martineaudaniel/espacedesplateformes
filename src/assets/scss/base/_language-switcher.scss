@@ -1,0 +1,57 @@
+// src/assets/scss/base/_language-switcher.scss
+
+@use '../base/color' as *;
+
+// Light mode styles
+.button.LanguageDropdownButton {
+  color: var(--neutral-900);
+  background-color: var(--primary-100);
+  border-color: var(--primary-100);
+
+  &:hover,
+  &:focus {
+    background-color: var(--primary-200);
+    border-color: var(--primary-200);
+  }
+}
+
+.dropdown-menu {
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-300);
+}
+
+.dropdown-menu a {
+  color: var(--neutral-900);
+}
+
+.dropdown-menu a:hover {
+  background-color: var(--neutral-200);
+  color: var(--neutral-900);
+}
+
+// Dark mode styles
+.darkmode .button.LanguageDropdownButton {
+  color: var(--neutral-100);
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-600);
+
+  &:hover,
+  &:focus {
+    background-color: var(--neutral-700);
+    border-color: var(--neutral-700);
+  }
+}
+
+.darkmode .dropdown-menu {
+  background-color: var(--neutral-800);
+  border-color: var(--neutral-600);
+}
+
+.darkmode .dropdown-menu a {
+  color: var(--neutral-100);
+}
+
+.darkmode .dropdown-menu a:hover {
+  background-color: var(--neutral-700);
+  color: var(--neutral-100);
+}

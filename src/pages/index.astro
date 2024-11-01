@@ -4,10 +4,50 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import Counter from '../components/Counter.astro'
 import ContentMedia from '../components/ContentMedia.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <DefaultLayout title="Home">
-  <Hero />
+  <section class="my-12">
+    <div class="space-content container">
+      <h1>L’espace des plateformes</h1>
+      <p class="text-2xl">
+        Exposition collective <br />
+        Dans le cadre du projet <i>Plateformes et usages. Cinéma, télévision, jeu vidéo et création numérique</i>
+      </p>
+      <p class="text-2xl">
+        Group Exhibition <br />
+        As part of the project <i>Platforms and Uses: Cinema, Television, Video Games, and Digital Creation</i>
+      </p>
+    </div>
+  </section>
+  <div class="container">
+    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-3">
+      <div class="flex flex-col items-center gap-4 md:items-center lg:col-span-1">
+        <h1 class="flex flex-col items-center text-center text-6xl md:text-left lg:text-8xl">
+          <span class="block leading-tight"></span>
+        </h1>
+        <a class="button LanguageButton has-icon" href="/fr/start">
+          <Icon name="ion:md-arrow-dropright" />
+          Français
+        </a>
+      </div>
+      <div class="flex w-full items-center justify-center lg:col-span-1 lg:w-auto">
+        <div class="separator h-0.25 w-full bg-current lg:h-32 lg:w-0.5"></div>
+      </div>
+      <div class="flex flex-col items-center gap-4 md:items-center lg:col-span-1">
+        <h1 class="flex flex-col items-center text-center text-6xl md:text-left lg:text-8xl">
+          <span class="block leading-tight"></span>
+        </h1>
+        <a class="button LanguageButton has-icon color-secondary" href="/en/start">
+          <Icon name="ion:md-arrow-dropright" />
+          English
+        </a>
+      </div>
+    </div>
+  </div>
+</DefaultLayout>
+<!--
   <section class="my-64">
     <div class="container">
       <h2 class="mb-16 text-6xl">Features</h2>
@@ -70,4 +110,4 @@ import ContentMedia from '../components/ContentMedia.astro'
       </div>
     </div>
   </section>
-</DefaultLayout>
+   -->

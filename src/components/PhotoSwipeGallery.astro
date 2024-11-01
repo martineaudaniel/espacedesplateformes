@@ -18,27 +18,49 @@ const { images } = Astro.props // Accept images as a prop
 <script>
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
+  let lightbox
+
+  function initializeGallery() {
+    console.log('Initializing PhotoSwipe gallery...')
+
+    // Destroy any existing instance to avoid conflicts
+    if (lightbox) {
+      console.log('Destroying previous PhotoSwipe instance')
+      lightbox.destroy()
+    }
+
+    // Initialize PhotoSwipeLightbox
+    lightbox = new PhotoSwipeLightbox({
+      gallery: '#photoswipe-gallery', // Gallery container selector
+      children: 'a', // Image links within gallery
+      pswpModule: () => import('photoswipe'),
+    })
+
+    lightbox.init()
+    console.log('PhotoSwipe initialized with lightbox', lightbox)
+
+    // Set image dimensions for correct scaling
+    setImageDimensions()
+  }
+
   function setImageDimensions() {
+    console.log('Setting image dimensions...')
     const galleryItems = document.querySelectorAll('#photoswipe-gallery .gallery-item')
+
     galleryItems.forEach((item) => {
       const img = item.querySelector('img')
       const image = new Image()
       image.src = img.src
+
+      // Set dimensions once the image is loaded
       image.onload = () => {
         item.setAttribute('data-pswp-width', image.width)
         item.setAttribute('data-pswp-height', image.height)
+        console.log(`Dimensions set for ${img.src}: width=${image.width}, height=${image.height}`)
       }
     })
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    setImageDimensions()
-
-    const lightbox = new PhotoSwipeLightbox({
-      gallery: '#photoswipe-gallery',
-      children: 'a',
-      pswpModule: () => import('photoswipe'),
-    })
-    lightbox.init()
-  })
+  // Initialize on page load and client-side navigation
+  document.addEventListener('astro:page-load', initializeGallery)
 </script>

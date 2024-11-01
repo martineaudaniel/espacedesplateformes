@@ -1,0 +1,57 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '9', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: '',
+  subtitle: '',
+  description: `Le grand public découvre le jeu vidéo en 1972 à travers les bornes d’arcade PONG. L’entreprise américaine Atari investit le marché domestique avec son Home PONG, d’abord commercialisé par Sears sous le nom de Tele-Games, en 1975. Devant son succès, Atari propose des successeurs (Super PONG, Ultra PONG, etc.), et des dizaines d’autres fabricants lancent leur propre gamme, saturant le marché avec plus d’une centaine de modèles en 3 ans (dont le Telstar de Coleco, le TV Scoreboard de Radio Shack, le TV Sport d’Intel, le Video Sports de Canadian Tire au Canada, l’Occitel d’Occitane en France, et le TV-Game 6 de Nintendo au Japon). Ces premiers appareils utilisent des circuits intégrés : chaque machine est construite pour un seul jeu (et des variations), comme une mini-borne d’arcade pour la maison. Avec l’arrivée du microprocesseur programmable, les nouveaux appareils (le Channel F de Fairchild, le Video Computer System/VCS d’Atari, l’Intellivision de Mattel ou le ColecoVision de Coleco) sont durables grâce aux cartouches de jeu interchangeables, sur le modèle du tourne-disque ou du lecteur VHS. La console de jeu participe au décor du foyer (en témoigne la finition en bois de nombreux modèles). Puisque les cartouches ne sont pas intercompatibles et que les téléviseurs ne sont pas conçus pour accueillir plusieurs appareils simultanément, la concurrence entre les consoles, en plus des ordinateurs personnels abordables qui se branchent sur le téléviseur (le TI-99/4 de Texas Instruments, le Commodore 64 de Commodore) signifie que chaque nouvelle plateforme doit détrôner son prédécesseur. Bien vite, c’est le garde-robe, le grenier ou le garage qui accueillera les machines déclassées dans leurs boîtes couvertes de promesses de révolution technologique. 
+
+Texte : Dominic Arsenault`,
+  images: ['/assets/img/pong/1.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

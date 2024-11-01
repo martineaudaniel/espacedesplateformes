@@ -1,0 +1,72 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '4', 10)
+const totalPages = 15 // Set this to the total number of pages you have
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title:
+    'La peur de la mère-patrie (2023), vidéo HD, couleur et noir & blanc ; 8 minutes 45 secondes. Pour la version avec la trame sonore (à écouter avec vos écouteurs',
+  subtitle: 'Anastasia Bourlakova',
+  description: `Anastasia Bourlakova, cinéaste indépendante russe et participante du mouvement Kino depuis sa fondation à Montréal, aborde la question de l’émotion singulière partagée par des citoyens de pays totalitaires : la peur de leur mère-patrie. 
+
+Des études scientifiques (Zammatteo et Botman 2019, Tarquinio et Auxéméry 2022) démontrent notamment que les traumatismes tels que la guerre, la prison, la violence physique et psychologique modifient le cerveau d’un individu. Cette modification s’inscrit dans l’ADN et devient alors héréditaire. La peur peut donc passer d’une génération à l’autre. Dans les sciences humaines, Marianne Hirsch parle alors de la postmémoire ou la relation des générations suivantes avec des expériences souvent traumatisantes, qui ont précédé leur naissance mais qui leur ont été transmises si profondément qu’elles semblent constituer des souvenirs propres (2008). 
+
+Les plateformes numériques, les réseaux sociaux en particulier, nous offrent à nous, les citoyens lambda, la possibilité de partager notre vécu et de diffuser des images inédites qui feront dans certains cas un contrepoids à la propagande ou contribueront à la découverte de la vérité. 
+
+Grâce à ce partage informel et sans censure —sous toute réserve qu’on doive garder face à la qualité de l’information non vérifiée ex ante— l’Histoire est fixée par des téléphones intelligents dans nos rues à travers le monde. Que ce soit l’assassinat de Georges Floyd filmé par des passants ou encore les témoignages des civils ukrainiens sur la cruauté des troupes russes au début de la guerre qui ont défait le mensonge d’une «opération militaire antinazie» — ces témoignages font le tour du monde et livrent des preuves directes de la réalité. Cette projection d’images utilise l’« humour politique » comme outil pour faire comprendre l’urgence de sensibiliser à l’oppression des peuples marginalisés. C’est par ce regard décalé que l’œuvre propose une expérience plus viscérale pour le public visiteur de cette exposition. 
+
+En partant des images diffusées sur des réseaux sociaux dans le contexte de la guerre en Ukraine, la cinéaste remonte le fil de sa mémoire à travers son enfance et l’histoire de la Russie pour suivre les traces de l’émotion qui la lie à son pays : la peur. 
+
+La vidéo utilise des images originales tournées en Russie ainsi que des archives documentaires et fait partie de l’installation La peur de la mère-patrie. L’installation est une tente avec une projection vidéo qui invite le public à s’immerger dans un univers effrayant qui prend forme à travers une projection, des objets à manipuler et une narration interactive. Le but du projet est de sensibiliser le public occidental à cette peur.
+
+https://www.notrecinemamaison.com/copy-of-notre-catalogue`,
+  images: [
+    '/assets/img/la-peur-de-la-mere-patrie/1.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/2.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/3.jpg',
+  ],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>
