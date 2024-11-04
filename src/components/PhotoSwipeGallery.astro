@@ -1,14 +1,20 @@
 ---
-// src/components/PhotoSwipeGallery.astro
 import 'photoswipe/style.css'
 
-const { images } = Astro.props // Accept images as a prop
+// Accept images and columns as props
+const { images, columns } = Astro.props
+
+// Determine the columns class based on the `columns` prop
+let columnsClass = 'columns-1' // Default to 1 column
+if (typeof columns === 'number' && columns >= 1 && columns <= 6) {
+  columnsClass = `columns-${String(columns)}`
+}
 ---
 
-<div class="grid grid-cols-2 gap-4" id="photoswipe-gallery">
+<div class={`${columnsClass} gap-4`} id="photoswipe-gallery">
   {
     images.map((image, index) => (
-      <a key={index} href={image} class="gallery-item">
+      <a key={index} href={image} class="gallery-item mb-4 inline-block w-full">
         <img src={image} alt={`Artwork ${index + 1}`} class="h-auto w-full cursor-pointer rounded-lg shadow" />
       </a>
     ))
@@ -21,30 +27,25 @@ const { images } = Astro.props // Accept images as a prop
   let lightbox
 
   function initializeGallery() {
-    console.log('Initializing PhotoSwipe gallery...')
-
     // Destroy any existing instance to avoid conflicts
     if (lightbox) {
-      console.log('Destroying previous PhotoSwipe instance')
       lightbox.destroy()
     }
 
     // Initialize PhotoSwipeLightbox
     lightbox = new PhotoSwipeLightbox({
-      gallery: '#photoswipe-gallery', // Gallery container selector
-      children: 'a', // Image links within gallery
+      gallery: '#photoswipe-gallery',
+      children: 'a',
       pswpModule: () => import('photoswipe'),
     })
 
     lightbox.init()
-    console.log('PhotoSwipe initialized with lightbox', lightbox)
 
     // Set image dimensions for correct scaling
     setImageDimensions()
   }
 
   function setImageDimensions() {
-    console.log('Setting image dimensions...')
     const galleryItems = document.querySelectorAll('#photoswipe-gallery .gallery-item')
 
     galleryItems.forEach((item) => {
@@ -56,7 +57,6 @@ const { images } = Astro.props // Accept images as a prop
       image.onload = () => {
         item.setAttribute('data-pswp-width', image.width)
         item.setAttribute('data-pswp-height', image.height)
-        console.log(`Dimensions set for ${img.src}: width=${image.width}, height=${image.height}`)
       }
     })
   }

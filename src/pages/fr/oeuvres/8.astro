@@ -7,6 +7,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '8', 10)
 const totalPages = 15 // Set this to the total number of pages you have
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -20,27 +21,27 @@ const artwork = {
   description: `AMBIANCE
 
 Ambiance - Hannibal's Office (drawing, fireplace, music) par Ambiance Magic
-https://www.youtube.com/watch?v=aKugpx4_Wi0
+<a href="https://www.youtube.com/watch?v=aKugpx4_Wi0">https://www.youtube.com/watch?v=aKugpx4_Wi0</a>
 
 In the Impala with Sam and Dean (focus, relax, sleep) par Adri’s Ambience
-https://www.youtube.com/watch?v=-GI5zOEO4w4
+<a href="https://www.youtube.com/watch?v=-GI5zOEO4w4">https://www.youtube.com/watch?v=-GI5zOEO4w4</a>
 
 ASMR
 
 Daryl Dixon Saves You ASMR Walking Dead Roleplay par Jimち ASMR
-https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s
+<a href="https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s">https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s</a>
  
 Dunder Mifflin, This is Pam ! par Gibi ASMR
-https://www.youtube.com/watch?v=3HGKju4kUNc
+<a href="https://www.youtube.com/watch?v=3HGKju4kUNc">https://www.youtube.com/watch?v=3HGKju4kUNc</a>
  
  
 SHIFTING
 
 Reality shift to Euphoria subliminal par Divine Subliminals
-https://www.youtube.com/watch?v=ktYhy5PyjhI
+<a href="https://www.youtube.com/watch?v=ktYhy5PyjhI">https://www.youtube.com/watch?v=ktYhy5PyjhI</a>
  
 SQUID GAME - Méditation guidée français SHIFTING et RÊVES LUCIDES - ALICE IN BORDERLAND Method par L’ermite des songes
-https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s
+<a href="https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s">https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s</a>
 `,
   images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
 }
@@ -53,7 +54,7 @@ https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s
         <div>
           <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
           <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
-          <p class="whitespace-pre-wrap text-xl">{artwork.description}</p>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
         </div>
       </div>
     </div>
