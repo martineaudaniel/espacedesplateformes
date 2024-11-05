@@ -6,8 +6,8 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '13', 10)
-const totalPages = 15 // Set this to the total number of pages you have
-const galleryColumns = 2
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -16,28 +16,39 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'Mi papá y el hombre del paquete 10 vignettes, 46 x 46 cm chacune, noir et blanc',
-  subtitle: 'Darién Sánchez',
-  description: `Les vignettes de Darién Sánchez proposent des réflexions critiques sur des situations issues d’expériences de la vie quotidienne à Cuba. Dans Mon père et l’homme d’El Paquete, il s’intéresse à la distribution, au contenu et à la réception d’El Paquete Semanal (Le paquet hebdomadaire) à Cuba : une manière alternative de faire circuler l’information dans un contexte où l’accès à l’internet est encore complexe. Ce n’est que récemment que Cuba a connu une évolution vers un meilleur accès aux données mobiles permettant aux citoyens de publier et d’écouter des vidéos. C’est pourquoi le fait de disposer d’une connexion Wi-Fi à domicile et d’un compte Netflix est encore considéré comme un privilège, et le piratage est devenu une pratique naturalisée sur l’île. Racontées du point de vue de la famille de l’artiste, ces histoires reflètent le déséquilibre croissant des pouvoirs et les défis posés par le fossé numérique dans la Cuba contemporaine. La nature intermédiale de Mi papá y el hombre del paquete relie la vignette Instagram aux films et séries télévisées contemporains. L’humour est un outil politique dans le travail de l’artiste, et l’espace domestique représente souvent des conflits entre différentes générations vivant dans un pays changé où l’utopie de la révolution a évolué de manière spectaculaire. Designer, animateur et artiste visuel, Sánchez utilise Instagram comme principale plateforme pour promouvoir sa pratique créatrice. Son contenu numérique est également disponible sur des réseaux tels que Giphy et Canva.
-
- @dariensanchez_ giphy.com/darienson canva.com/p/dariensan/`,
-  images: [
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/1.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/2.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/3.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/4.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/5.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/6.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/7.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/8.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/9.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/10.png',
-  ],
+  title: 'Obsolescence',
+  subtitle: '',
+  description: `Un produit, système ou service est défini comme obsolescent lorsque sa vie utile est raccourcie de quelconque manière par rapport à ce qu’elle pourrait être. Obsolescence L’obsolescence, souvent employée comme stratégie de vente, est un véritable fléau pour l’environnement, créant des millions de tonnes de déchets qui pourraient être évités. Les designers qui conçoivent les produits et les entreprises qui les produisent ont une part de responsabilité importante, mais en tant que consommateur, nous avons aussi notre rôle à jouer. Lors de l’achat de nouveaux produits, il est primordial de vérifier la durabilité du produit, de s’assurer que nous achetons un produit que nous utiliserons encore dans plusieurs années et que son esthétique perdurera. Les produits électroniques qui offrent la possibilité de remplacer les pièces défectueuses ou moins performantes sont à prioriser. Obsolescence matérielle Obsolescence économique Obsolescence psychologique Obsolescence fonctionnelle Obsolescence systémique Lorsqu’un produit ou une de ses parties est fait avec des matériaux de piètre qualité ou du design de mauvaise qualité qui se brisera avant le reste des composantes du produit ou prématurément. Lorsqu’il est plus profitable au consommateur de remplacer un produit que de le faire réparer. Le changement rapide de modèle ou de technologies pousse les acheteurs à sans cesse vouloir se procurer le dernier modèle afin d’être à jour avec la nouvelle tendance. L’introduction rapide de nouvelles technologies rend les nouveaux modèles de produits beaucoup plus intéressants et encourage les consommateurs à changer de modèle de produit avant la fin de la vie utile de celui-ci. Surtout utilisé avec les produits électroniques tels les cellulaires. De trop grands changements de systèmes peuvent rendre un produit ou une technologie inutilisable. Cela inclut les systèmes qui ralentissent dû à des mises à jour substantielles. Il peut aussi s’agir de nouveaux éléments qui ne sont plus compatibles avec l’ancienne génération. Guiltinan, J. Creative Destruction and Destructive Creations: Environmental Ethics and Planned Obsolescence. J Bus Ethics 89 (Suppl 1), 19–28 (2009). https://doi.org/10.1007/s10551- 008-9907-9 Penty, J. (2019). Product Design and Sustainability: Strategies, Tools and Practice (1st ed.). Routledge. https://doi.org/10.4324/9780203732076 Rivera, J., Lallmahomed, A. (2016) Environmental implications of planned obsolescence and product lifetime: a literature review. International Journal of Sustainable Engineering vol.9 no.2. 119-129. DOI: 10.1080/19397038.2015.1099757`,
+  images: ['/assets/img/obsolescence/1.png'],
 }
 ---
 
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
+    <style lang="scss">
+      .call-to-action {
+        /* Remove background styling here */
+      }
+
+      .call-to-action-link {
+        padding: 1rem; /* Adjust padding as needed */
+        color: var(--neutral-900);
+        font-weight: bold;
+        border: 5px solid var(--secondary-300); /* Increase border thickness here */
+        border-radius: 3px;
+        text-decoration: none;
+        width: 400px;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+          color: var(--neutral-100);
+          background-color: var(--neutral-900);
+          text-decoration: underline;
+        }
+      }
+    </style>
+
     <div class="container mx-auto flex gap-8">
       <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
       <div class="flex-1 p-8">
@@ -51,6 +62,14 @@ const artwork = {
           <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
           <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
         </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
+        <a href="/fr/oeuvres/1" class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6">
+          Retourner au début de la visite</a
+        >
       </div>
     </div>
   </section>

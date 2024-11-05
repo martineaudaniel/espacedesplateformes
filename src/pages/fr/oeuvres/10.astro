@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '10', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
@@ -16,15 +16,22 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'Les plateformes à domicile',
+  title: 'L’espace de visionnement comme espace intime : Projection de photographies d’étudiantes et d’étudiants ',
   subtitle: '',
-  description: `Tout espace est structuré par nous, mais aussi il organise nos comportements. Avec la pandémie de COVID-19, l’espace du domicile prend une place de relief, car il se réagence en se resserrant sur les expériences individuelles liées aux écrans, qui nous permettent d’avoir accès aux plateformes et à de multiples mondes, fictionnels, ludiques ou réels. Des générations entières habiteront en télétravail ces bureaux qui servent aussi comme des environnements de divertissement. «La Télévision nous redonnera le goût du foyer », remarquait le journaliste Jean Thévénot en 1946. Cependant, ce « goût du foyer » n’est pas à la portée de tout le monde : la pauvreté, le manque de ressources d’alphabétisation et d’électricité entretiennent un fossé numérique, ou l’écart existant entre les pays développés et les pays en voie de développement, en matière d’accès aux technologies de l’information et de la communication persiste au point que, selon The Guardian, plus d’un tiers de la population mondiale n’a jamais utilisé Internet.`,
+  description: `Notre relation aux plateformes passe d’abord par la construction d’un espace personnel et privé. Les plateformes demandent à celleux qui les consomment non seulement d’assister à un défilement d’images et de sons, mais aussi de développer un savoir technique et de se servir de celui-ci pour leurs besoins de divertissement et de découverte du monde. Dans ces photographies, prises par des usagers et usagères qui ont voulu partager leur espace de visionnement maison de cinéma et de télévision, le classique téléviseur, l’écran d’ordinateur, la tablette, le téléphone ou la console de jeu deviennent les composantes d’un rituel quotidien adapté à des besoins différents. On voit bien que l’expérience de visionnement dépend d’une maîtrise individuelle des technologies et des conditions matérielles et économiques dont nous bénéficions pour avoir accès aux plateformes, qui nous permettent de nous construire un espace, tout en profitant du plaisir de se retrouver chez nous, attractive parfois bien plus puissante que de se rendre dans une salle de cinéma... et le confort de l’espace dans lequel se déroule l’expérience de visionnement prime souvent sur le contenu... 
+
+Remerciements : Carl, Greta, Myriam, Philippe, Valérie, Contributrices et contributeurs anonymes`,
   images: [
-    '/assets/img/les-plateformes-a-domicile/1.jpg',
-    '/assets/img/les-plateformes-a-domicile/2.jpg',
-    '/assets/img/les-plateformes-a-domicile/3.jpg',
-    '/assets/img/les-plateformes-a-domicile/4.jpg',
-    '/assets/img/les-plateformes-a-domicile/5.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/1.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/2.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/3.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/4.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/5.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/6.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/7.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/8.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg',
+    '/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg',
   ],
 }
 ---

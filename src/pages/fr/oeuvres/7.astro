@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '7', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
@@ -16,10 +16,12 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'Vidéos de YouTubers',
+  title: '',
   subtitle: '',
-  description: `Les ambiances sont des arrangements sonores mêlant divers bruits afin de recréer l’atmosphère des lieux culte d’une œuvre télévisuelle telle que les chambres des personnages principaux ou le café où ceux-ci ont coutume de se retrouver. Les extraits de dialogues, fréquents dans ces créations audio, renforcent le sentiment d’être auprès des protagonistes, d’être assez proche d’elleux pour entendre leurs conversations et y prendre part. Les ASMR roleplay permettent également de passer un temps privilégié en compagnie de ses protagonistes favoris. Les ASMRtistes incarnent dans ces créations des héros de fiction. Iels maintiennent un contact visuel avec les spectateurs/ trices en regardant l’objectif de la caméra. Iels s’adressent directement à elleux, leur posant des questions et réagissant à leurs réponses, toujours à voix basse puisque le but de l’ASMR est d’induire un état de relaxation. Ultimement, les ASMR roleplay visent autant à détendre le public qu’à lui proposer des scénarios à même de prolonger les trames narratives développées au sein de la série. Les vidéos de shifting ont, pour leur part, pour objectif d’aider chacun.e à transiter du monde du réel vers l’univers fictionnel de son choix. Des directives précises peuvent être fournies au public. La plupart des vidéos couplent, cependant, les musiques de la série à des images subliminales, permettant aux spectateurs/trices de visualiser les protagonistes avec lesquels iels interagiront ainsi que les espaces au sein desquels iels pourront vivre les aventures qu’iels souhaitent une fois la réalité qu’iels désirent atteinte.`,
-  images: ['/assets/img/videos-de-youtubers/1.jpg', '/assets/img/videos-de-youtubers/2.jpg'],
+  description: `Le grand public découvre le jeu vidéo en 1972 à travers les bornes d’arcade PONG. L’entreprise américaine Atari investit le marché domestique avec son Home PONG, d’abord commercialisé par Sears sous le nom de Tele-Games, en 1975. Devant son succès, Atari propose des successeurs (Super PONG, Ultra PONG, etc.), et des dizaines d’autres fabricants lancent leur propre gamme, saturant le marché avec plus d’une centaine de modèles en 3 ans (dont le Telstar de Coleco, le TV Scoreboard de Radio Shack, le TV Sport d’Intel, le Video Sports de Canadian Tire au Canada, l’Occitel d’Occitane en France, et le TV-Game 6 de Nintendo au Japon). Ces premiers appareils utilisent des circuits intégrés : chaque machine est construite pour un seul jeu (et des variations), comme une mini-borne d’arcade pour la maison. Avec l’arrivée du microprocesseur programmable, les nouveaux appareils (le Channel F de Fairchild, le Video Computer System/VCS d’Atari, l’Intellivision de Mattel ou le ColecoVision de Coleco) sont durables grâce aux cartouches de jeu interchangeables, sur le modèle du tourne-disque ou du lecteur VHS. La console de jeu participe au décor du foyer (en témoigne la finition en bois de nombreux modèles). Puisque les cartouches ne sont pas intercompatibles et que les téléviseurs ne sont pas conçus pour accueillir plusieurs appareils simultanément, la concurrence entre les consoles, en plus des ordinateurs personnels abordables qui se branchent sur le téléviseur (le TI-99/4 de Texas Instruments, le Commodore 64 de Commodore) signifie que chaque nouvelle plateforme doit détrôner son prédécesseur. Bien vite, c’est le garde-robe, le grenier ou le garage qui accueillera les machines déclassées dans leurs boîtes couvertes de promesses de révolution technologique. 
+
+Texte : Dominic Arsenault`,
+  images: ['/assets/img/pong/1.jpg'],
 }
 ---
 

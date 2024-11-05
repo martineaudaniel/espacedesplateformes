@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '4', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
@@ -16,27 +16,18 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title:
-    'La peur de la mère-patrie (2023), vidéo HD, couleur et noir & blanc ; 8 minutes 45 secondes. Pour la version avec la trame sonore (à écouter avec vos écouteurs',
-  subtitle: 'Anastasia Bourlakova',
-  description: `Anastasia Bourlakova, cinéaste indépendante russe et participante du mouvement Kino depuis sa fondation à Montréal, aborde la question de l’émotion singulière partagée par des citoyens de pays totalitaires : la peur de leur mère-patrie. 
+  title: 'Scènes du déclic',
+  subtitle: '',
+  description: `« Ouais. Parce que (cette scène de Vampire Diaries) vraiment, ça m’avait bien poigné. » (Mitch, 25 ans) 
 
-Des études scientifiques (Zammatteo et Botman 2019, Tarquinio et Auxéméry 2022) démontrent notamment que les traumatismes tels que la guerre, la prison, la violence physique et psychologique modifient le cerveau d’un individu. Cette modification s’inscrit dans l’ADN et devient alors héréditaire. La peur peut donc passer d’une génération à l’autre. Dans les sciences humaines, Marianne Hirsch parle alors de la postmémoire ou la relation des générations suivantes avec des expériences souvent traumatisantes, qui ont précédé leur naissance mais qui leur ont été transmises si profondément qu’elles semblent constituer des souvenirs propres (2008). 
+Les séries comportent parfois des histoires ou dialogues qui nous marquent, qui nous renvoient à nos vies, notre passé ou notre futur souhaité. Certaines scènes font déclic, s’installent doucement ou frontalement dans notre quotidien, puis dans nos souvenirs et récits de vie. Dans le cadre du projet Expériences des séries et construction identitaire, financé par le Conseil de recherche en sciences humaines du Canada (CRSH), une équipe universitaire de l’UQAM s’est intéressée à cerner le rôle que les jeunes adultes (18- 25 ans) attribuent à l’expérience des séries dans leur processus de construction identitaire, et notamment à leurs aspects narratifs et esthétiques. Il s’agit ici d’une rencontre entre l’univers fictif et celui de la réception; d’un moment de déclic : une scène qui déclenche quelque chose; une scène qui est souvent réécoutée et parfois réconforte, dans tous les cas, une scène qui marque et s’imprime dans le récit personnel. 
 
-Les plateformes numériques, les réseaux sociaux en particulier, nous offrent à nous, les citoyens lambda, la possibilité de partager notre vécu et de diffuser des images inédites qui feront dans certains cas un contrepoids à la propagande ou contribueront à la découverte de la vérité. 
+Cette installation vous invite à plonger dans l’univers du déclic de plusieurs personnes interviewées dont vous entendez la voix originale. Leurs noms ont été changés et la tonalité de leur voix légèrement modifiée pour préserver leur anonymat. 
 
-Grâce à ce partage informel et sans censure —sous toute réserve qu’on doive garder face à la qualité de l’information non vérifiée ex ante— l’Histoire est fixée par des téléphones intelligents dans nos rues à travers le monde. Que ce soit l’assassinat de Georges Floyd filmé par des passants ou encore les témoignages des civils ukrainiens sur la cruauté des troupes russes au début de la guerre qui ont défait le mensonge d’une «opération militaire antinazie» — ces témoignages font le tour du monde et livrent des preuves directes de la réalité. Cette projection d’images utilise l’« humour politique » comme outil pour faire comprendre l’urgence de sensibiliser à l’oppression des peuples marginalisés. C’est par ce regard décalé que l’œuvre propose une expérience plus viscérale pour le public visiteur de cette exposition. 
+Conception et recherche : Christine Thoër et Katharina Niemeyer Montage sonore : Ezra Teboul Équipe : Sarah Blémur, Celina van Dembroucke, Chloé Charrette-Lalonde, Dimitra Laurence Larochelle, Catherine Montgomery, Ludovik Roy.
 
-En partant des images diffusées sur des réseaux sociaux dans le contexte de la guerre en Ukraine, la cinéaste remonte le fil de sa mémoire à travers son enfance et l’histoire de la Russie pour suivre les traces de l’émotion qui la lie à son pays : la peur. 
-
-La vidéo utilise des images originales tournées en Russie ainsi que des archives documentaires et fait partie de l’installation La peur de la mère-patrie. L’installation est une tente avec une projection vidéo qui invite le public à s’immerger dans un univers effrayant qui prend forme à travers une projection, des objets à manipuler et une narration interactive. Le but du projet est de sensibiliser le public occidental à cette peur.
-
-<a href="https://www.notrecinemamaison.com/copy-of-notre-catalogue">https://www.notrecinemamaison.com/copy-of-notre-catalogue</a>`,
-  images: [
-    '/assets/img/la-peur-de-la-mere-patrie/1.jpg',
-    '/assets/img/la-peur-de-la-mere-patrie/2.jpg',
-    '/assets/img/la-peur-de-la-mere-patrie/3.jpg',
-  ],
+ Scènes du déclic: <a href="https://series.uqam.ca/exposition/">https://series.uqam.ca/exposition/</a>`,
+  images: ['/assets/img/scenes-du-declic/1.jpg', '/assets/img/scenes-du-declic/2.jpg'],
 }
 ---
 

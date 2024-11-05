@@ -6,8 +6,8 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '3', 10)
-const totalPages = 15 // Set this to the total number of pages you have
-const galleryColumns = 2
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -16,16 +16,26 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'La Fin des Paillassons',
-  subtitle: 'Clémentine Brochet et Tara Karmous',
-  description: `Ce projet tente de répondre à une problématique encore souvent ignorée dans les musées : l’histoire de l’art est une histoire d’hommes écrite par des hommes et généralement destinée aux hommes. Cependant, les femmes, en plus de d’autres minorités, ont bel et bien participé à la production des œuvres les plus emblématiques en Occident. Il est temps de les voir et de les écouter. Pour ce premier prototype, nous nous sommes concentrées sur quelques femmes qui ont entretenu une relation avec le peintre Pablo Picasso. À travers trois de ses œuvres, vous rencontrerez Olga Khokhlova, Marie-Thérèse Walter et Dora Maar. Toutes trois ont été plus que des muses posant passivement pour le peintre en influençant son travail. La Fin des paillassons vous invite aussi à découvrir comment la vie de ces trois femmes a été marquée par cette relation. Grâce à la réalité augmentée, il est possible de redonner une voix à ces figures oubliées ou déformées par le célèbre artiste. • Mettez le casque d’écoute sur vos oreilles • Ouvrez l’application La Fin des paillassons sur le téléphone • Pointez le tableau qui vous intéresse • Bonne expérience ! Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de paroles rapportées, à quelques exceptions près. Toutefois, le contenu a été largement documenté pour proposer une interprétation aussi fidèle que possible des faits mentionnés. 
-ATTENTION : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page1 
+  title:
+    'La peur de la mère-patrie (2023), vidéo HD, couleur et noir & blanc ; 8 minutes 45 secondes. Pour la version avec la trame sonore (à écouter avec vos écouteurs',
+  subtitle: 'Anastasia Bourlakova',
+  description: `Anastasia Bourlakova, cinéaste indépendante russe et participante du mouvement Kino depuis sa fondation à Montréal, aborde la question de l’émotion singulière partagée par des citoyens de pays totalitaires : la peur de leur mère-patrie. 
 
-1Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide. Le tableau représentant Dora Maar traite de la violence domestique.`,
+Des études scientifiques (Zammatteo et Botman 2019, Tarquinio et Auxéméry 2022) démontrent notamment que les traumatismes tels que la guerre, la prison, la violence physique et psychologique modifient le cerveau d’un individu. Cette modification s’inscrit dans l’ADN et devient alors héréditaire. La peur peut donc passer d’une génération à l’autre. Dans les sciences humaines, Marianne Hirsch parle alors de la postmémoire ou la relation des générations suivantes avec des expériences souvent traumatisantes, qui ont précédé leur naissance mais qui leur ont été transmises si profondément qu’elles semblent constituer des souvenirs propres (2008). 
+
+Les plateformes numériques, les réseaux sociaux en particulier, nous offrent à nous, les citoyens lambda, la possibilité de partager notre vécu et de diffuser des images inédites qui feront dans certains cas un contrepoids à la propagande ou contribueront à la découverte de la vérité. 
+
+Grâce à ce partage informel et sans censure —sous toute réserve qu’on doive garder face à la qualité de l’information non vérifiée ex ante— l’Histoire est fixée par des téléphones intelligents dans nos rues à travers le monde. Que ce soit l’assassinat de Georges Floyd filmé par des passants ou encore les témoignages des civils ukrainiens sur la cruauté des troupes russes au début de la guerre qui ont défait le mensonge d’une «opération militaire antinazie» — ces témoignages font le tour du monde et livrent des preuves directes de la réalité. Cette projection d’images utilise l’« humour politique » comme outil pour faire comprendre l’urgence de sensibiliser à l’oppression des peuples marginalisés. C’est par ce regard décalé que l’œuvre propose une expérience plus viscérale pour le public visiteur de cette exposition. 
+
+En partant des images diffusées sur des réseaux sociaux dans le contexte de la guerre en Ukraine, la cinéaste remonte le fil de sa mémoire à travers son enfance et l’histoire de la Russie pour suivre les traces de l’émotion qui la lie à son pays : la peur. 
+
+La vidéo utilise des images originales tournées en Russie ainsi que des archives documentaires et fait partie de l’installation La peur de la mère-patrie. L’installation est une tente avec une projection vidéo qui invite le public à s’immerger dans un univers effrayant qui prend forme à travers une projection, des objets à manipuler et une narration interactive. Le but du projet est de sensibiliser le public occidental à cette peur.
+
+<a href="https://www.notrecinemamaison.com/copy-of-notre-catalogue">https://www.notrecinemamaison.com/copy-of-notre-catalogue</a>`,
   images: [
-    '/assets/img/la-fin-des-paillassons/1.jpg',
-    '/assets/img/la-fin-des-paillassons/2.jpg',
-    '/assets/img/la-fin-des-paillassons/3.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/1.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/2.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/3.jpg',
   ],
 }
 ---

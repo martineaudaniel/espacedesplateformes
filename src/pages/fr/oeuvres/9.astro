@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '9', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
@@ -16,12 +16,10 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: '',
+  title: 'La télécommande',
   subtitle: '',
-  description: `Le grand public découvre le jeu vidéo en 1972 à travers les bornes d’arcade PONG. L’entreprise américaine Atari investit le marché domestique avec son Home PONG, d’abord commercialisé par Sears sous le nom de Tele-Games, en 1975. Devant son succès, Atari propose des successeurs (Super PONG, Ultra PONG, etc.), et des dizaines d’autres fabricants lancent leur propre gamme, saturant le marché avec plus d’une centaine de modèles en 3 ans (dont le Telstar de Coleco, le TV Scoreboard de Radio Shack, le TV Sport d’Intel, le Video Sports de Canadian Tire au Canada, l’Occitel d’Occitane en France, et le TV-Game 6 de Nintendo au Japon). Ces premiers appareils utilisent des circuits intégrés : chaque machine est construite pour un seul jeu (et des variations), comme une mini-borne d’arcade pour la maison. Avec l’arrivée du microprocesseur programmable, les nouveaux appareils (le Channel F de Fairchild, le Video Computer System/VCS d’Atari, l’Intellivision de Mattel ou le ColecoVision de Coleco) sont durables grâce aux cartouches de jeu interchangeables, sur le modèle du tourne-disque ou du lecteur VHS. La console de jeu participe au décor du foyer (en témoigne la finition en bois de nombreux modèles). Puisque les cartouches ne sont pas intercompatibles et que les téléviseurs ne sont pas conçus pour accueillir plusieurs appareils simultanément, la concurrence entre les consoles, en plus des ordinateurs personnels abordables qui se branchent sur le téléviseur (le TI-99/4 de Texas Instruments, le Commodore 64 de Commodore) signifie que chaque nouvelle plateforme doit détrôner son prédécesseur. Bien vite, c’est le garde-robe, le grenier ou le garage qui accueillera les machines déclassées dans leurs boîtes couvertes de promesses de révolution technologique. 
-
-Texte : Dominic Arsenault`,
-  images: ['/assets/img/pong/1.jpg'],
+  description: `Non sans controverse, le réalisateur Peter Greenaway déclare en 2007: «Cinema’s death date was 31 September 1983, when the remote-control zapper was introduced to the living room, because now cinema has to be interactive, multi-media art. » Le cinéaste évoquait la nécessité de repenser tous les médias pour qu’ils puissent survivre à l’ère du numérique et de l’interactivité, potentiellement meurtriers pour le spectacle traditionnel en salle. La télécommande que nous voyons dans cette vitrine, par exemple, intègre désormais des boutons nous donnant un accès direct à certaines plateformes. L’idée d’éloignement ou de contrôle à distance, un des piliers des pratiques de visionnage de télévision alors qu’elle n’est plus restreinte aux pratiques linéaires, renforce et facilite l’accès aux contenus qui sont de plus en plus nombreux, tout en normalisant le multitasking et facilitant l’immobilité. Fonctionnelle à notre choix et de contrôle, telle une extension de nos corps, au même titre que les téléphones portables, suivant le concept de Marshall McLuhan, elle devient une partie intégrante de nos rituels de consommation. Mais jusqu’où peut vraiment aller la liberté de choix et le contrôle par rapport à un contenu qui, à l’ère des algorithmes, nous est souvent déjà fourni, selon les traces de nos consommations précédentes ?`,
+  images: ['/assets/img/la-telecommande/1.jpg', '/assets/img/la-telecommande/2.jpg'],
 }
 ---
 

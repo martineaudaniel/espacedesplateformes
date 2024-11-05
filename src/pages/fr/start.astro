@@ -7,30 +7,30 @@ import Thumbnail from '../../components/Thumbnail.astro'
   <section class="my-16">
     <div class="container">
       <div class="container">
-        <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg p-4 md:p-6">
-          <a href="/fr/oeuvres/1" class="text-center text-lg"> Début de la visite</a>
+        <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
+          <a href="/fr/oeuvres/1" class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6">
+            Début de la visite</a
+          >
         </div>
       </div>
 
       <style lang="scss">
         .call-to-action {
-          color: var(--neutral-900);
-          background-image: linear-gradient(40deg, var(--primary-100), var(--secondary-200));
-          /* You can also add custom padding here if needed */
-          /* padding: 1rem; */
+          /* Remove background styling here */
         }
 
-        .call-to-action a:not(button),
-        .call-to-action a:not(button):visited {
-          padding: 1rem;
+        .call-to-action-link {
+          padding: 1rem; /* Adjust padding as needed */
           color: var(--neutral-900);
           font-weight: bold;
-          border: 3px solid var(--neutral-900);
+          border: 5px solid var(--secondary-300); /* Increase border thickness here */
           border-radius: 3px;
           text-decoration: none;
+          width: 400px;
           transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 
-          &:where(:hover, :focus) {
+          &:hover,
+          &:focus {
             color: var(--neutral-100);
             background-color: var(--neutral-900);
             text-decoration: underline;
@@ -39,10 +39,10 @@ import Thumbnail from '../../components/Thumbnail.astro'
       </style>
 
       <h2 class="mb-16 text-6xl"></h2>
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/3">
+            <a href="/fr/oeuvres/2">
               <img
                 src="/assets/img/la-fin-des-paillassons/1.jpg"
                 alt="Description of the image"
@@ -53,7 +53,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/4">
+            <a href="/fr/oeuvres/3">
               <img
                 src="/assets/img/la-peur-de-la-mere-patrie/1.jpg"
                 alt="Description of the image"
@@ -64,7 +64,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/5">
+            <a href="/fr/oeuvres/4">
               <img
                 src="/assets/img/scenes-du-declic/2.jpg"
                 alt="Description of the image"
@@ -75,7 +75,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/6">
+            <a href="/fr/oeuvres/5">
               <img
                 src="/assets/img/communaute-balletomane-par-limage/1.jpg"
                 alt="Description of the image"
@@ -86,7 +86,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/8">
+            <a href="/fr/oeuvres/6">
               <img
                 src="/assets/img/videos-de-youtubers/1.jpg"
                 alt="Description of the image"
@@ -97,14 +97,14 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/9">
+            <a href="/fr/oeuvres/7">
               <img src="/assets/img/pong/1.jpg" alt="Description of the image" class="h-full w-full object-cover" />
             </a>
           </div>
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/10">
+            <a href="/fr/oeuvres/8">
               <img
                 src="/assets/img/les-plateformes-a-domicile/1.jpg"
                 alt="Description of the image"
@@ -115,7 +115,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/11">
+            <a href="/fr/oeuvres/9">
               <img
                 src="/assets/img/la-telecommande/2.jpg"
                 alt="Description of the image"
@@ -126,7 +126,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/12">
+            <a href="/fr/oeuvres/10">
               <img
                 src="/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg"
                 alt="Description of the image"
@@ -137,7 +137,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/13">
+            <a href="/fr/oeuvres/11">
               <img
                 src="/assets/img/mi-papa-y-el-hombre-del-paquete/11.jpg"
                 alt="Description of the image"
@@ -148,7 +148,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/14">
+            <a href="/fr/oeuvres/12">
               <img
                 src="/assets/img/art-statement-feminist-sonographies-of-situated-listening/1.jpg"
                 alt="Description of the image"
@@ -159,7 +159,7 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/15">
+            <a href="/fr/oeuvres/13">
               <img
                 src="/assets/img/obsolescence/1.png"
                 alt="Description of the image"

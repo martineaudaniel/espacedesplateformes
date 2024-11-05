@@ -9,6 +9,7 @@ let columnsClass = 'columns-1' // Default to 1 column
 if (typeof columns === 'number' && columns >= 1 && columns <= 6) {
   columnsClass = `columns-${String(columns)}`
 }
+console.log(columnsClass)
 ---
 
 <div class={`${columnsClass} gap-4`} id="photoswipe-gallery">

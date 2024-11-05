@@ -6,7 +6,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '2', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
@@ -16,69 +16,16 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: '',
-  subtitle: '',
-  description: `Commissariat de l’exposition
-L’espace des plateformes
+  title: 'La Fin des Paillassons',
+  subtitle: 'Clémentine Brochet et Tara Karmous',
+  description: `Ce projet tente de répondre à une problématique encore souvent ignorée dans les musées : l’histoire de l’art est une histoire d’hommes écrite par des hommes et généralement destinée aux hommes. Cependant, les femmes, en plus de d’autres minorités, ont bel et bien participé à la production des œuvres les plus emblématiques en Occident. Il est temps de les voir et de les écouter. Pour ce premier prototype, nous nous sommes concentrées sur quelques femmes qui ont entretenu une relation avec le peintre Pablo Picasso. À travers trois de ses œuvres, vous rencontrerez Olga Khokhlova, Marie-Thérèse Walter et Dora Maar. Toutes trois ont été plus que des muses posant passivement pour le peintre en influençant son travail. La Fin des paillassons vous invite aussi à découvrir comment la vie de ces trois femmes a été marquée par cette relation. Grâce à la réalité augmentée, il est possible de redonner une voix à ces figures oubliées ou déformées par le célèbre artiste. • Mettez le casque d’écoute sur vos oreilles • Ouvrez l’application La Fin des paillassons sur le téléphone • Pointez le tableau qui vous intéresse • Bonne expérience ! Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de paroles rapportées, à quelques exceptions près. Toutefois, le contenu a été largement documenté pour proposer une interprétation aussi fidèle que possible des faits mentionnés. 
+ATTENTION : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page1 
 
-Commissariat général 
-
-Christine Bernier, Marta Boni, Zaira Zarza
-Professeures, Département d’histoire de l’art et d’études cinématographiques 
-
-Équipe
-
-Chercheurs, chercheuses, projet Plateformes et usages. Cinéma, télévision, jeu vidéo, création numérique : Marta Boni, Christine Bernier, Zaira Zarza, Joyce Cimper (UdeM), Barbara Laborde, Guillaume Soulez, Vincent Bilem, Florian Body, Joa Neves (Sorbonne Nouvelle – Paris 3). 
-
-Équipe étudiante
-
-Rédaction de textes : Joyce Cimper, Kai Sen Trieu, Mathieu Simard
-
-Modélisation 3D (logiciel SketchUp) et identité visuelle : Renée Filbey, Agatha Lambert
-
-Remerciements
-
-LUDOV
-Faculté de l’aménagement, Université de Montréal
-
-Soutien financier
-
-Conseil de recherches en sciences humaines (CRSH), Programme Connexion 
-Carrefour des arts et des sciences
-CRIHN
-Laboratoire CinéMédias
-Labo Télé
-
-Commissariat : Christine Bernier, Marta Boni, Zaira Zarza 
-
-Artistes 
-Anastasia Bourlakova 
-Amanda Gutiérrez 
-Tara Karmous 
-Darién Sánchez
-
-Youtubeuses et youtubeurs
-Adri’s Ambience
-Ambiance Magic
-Divine Subliminals 
-Gibi ASMR
-Jimち ASMR
-L’ermite des songes
-
-Chercheuses et chercheurs exposants
-Marie-Caroline Neuvillers et Gaëtan Rivière
-Katharina Niemeyer et Christine Thoër
-
-`,
+1Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide. Le tableau représentant Dora Maar traite de la violence domestique.`,
   images: [
-    '/assets/img/logos/plateformes-et-usages.png',
-    '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
-    '/assets/img/logos/canada.png',
-    '/assets/img/logos/labo-tele.png',
-    '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
-    '/assets/img/logos/ludov.png',
-    '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg',
-    '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+    '/assets/img/la-fin-des-paillassons/1.jpg',
+    '/assets/img/la-fin-des-paillassons/2.jpg',
+    '/assets/img/la-fin-des-paillassons/3.jpg',
   ],
 }
 ---
@@ -86,18 +33,18 @@ Katharina Niemeyer et Christine Thoër
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
     <div class="container mx-auto flex gap-8">
-      <!-- Left Half: Text Content -->
-      <div class="flex-1 p-8">
-        <div>
-          <h1 class="mb-4 text-center text-4xl font-bold">{artwork.title}</h1>
-          <h3 class="mb-4 text-center text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
-          <p class="whitespace-pre-wrap text-center text-xl">{artwork.description}</p>
-        </div>
-      </div>
-
-      <!-- Right Half: Image Gallery (PhotoSwipe Gallery) -->
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
       <div class="flex-1 p-8">
         <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+        </div>
       </div>
     </div>
   </section>
@@ -113,36 +60,4 @@ Katharina Niemeyer et Christine Thoër
       totalPages={totalPages}
     />
   </div>
-
-  <!-- Initialize PhotoSwipe -->
-  <script>
-    import PhotoSwipeLightbox from 'photoswipe/lightbox'
-    import 'photoswipe/style.css'
-
-    // Function to set image dimensions dynamically
-    function setImageDimensions() {
-      const galleryItems = document.querySelectorAll('#photoswipe-gallery .gallery-item')
-      galleryItems.forEach((item) => {
-        const img = item.querySelector('img')
-        const image = new Image()
-        image.src = img.src
-        image.onload = () => {
-          item.setAttribute('data-pswp-width', image.width)
-          item.setAttribute('data-pswp-height', image.height)
-        }
-      })
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // Set the image dimensions before initializing PhotoSwipe
-      setImageDimensions()
-
-      const lightbox = new PhotoSwipeLightbox({
-        gallery: '#photoswipe-gallery',
-        children: 'a',
-        pswpModule: () => import('photoswipe'),
-      })
-      lightbox.init()
-    })
-  </script>
 </DefaultLayout>

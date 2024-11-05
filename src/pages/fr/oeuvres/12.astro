@@ -6,8 +6,8 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '12', 10)
-const totalPages = 15 // Set this to the total number of pages you have
-const galleryColumns = 2
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -16,35 +16,22 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'L’espace de visionnement comme espace intime : Projection de photographies d’étudiantes et d’étudiants ',
-  subtitle: '',
-  description: `Notre relation aux plateformes passe d’abord par la construction d’un espace personnel et privé. Les plateformes demandent à celleux qui les consomment non seulement d’assister à un défilement d’images et de sons, mais aussi de développer un savoir technique et de se servir de celui-ci pour leurs besoins de divertissement et de découverte du monde. Dans ces photographies, prises par des usagers et usagères qui ont voulu partager leur espace de visionnement maison de cinéma et de télévision, le classique téléviseur, l’écran d’ordinateur, la tablette, le téléphone ou la console de jeu deviennent les composantes d’un rituel quotidien adapté à des besoins différents. On voit bien que l’expérience de visionnement dépend d’une maîtrise individuelle des technologies et des conditions matérielles et économiques dont nous bénéficions pour avoir accès aux plateformes, qui nous permettent de nous construire un espace, tout en profitant du plaisir de se retrouver chez nous, attractive parfois bien plus puissante que de se rendre dans une salle de cinéma... et le confort de l’espace dans lequel se déroule l’expérience de visionnement prime souvent sur le contenu... 
-
-Remerciements : Carl, Greta, Myriam, Philippe, Valérie, Contributrices et contributeurs anonymes`,
-  images: [
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/1.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/2.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/3.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/4.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/5.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/6.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/7.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/8.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg',
-  ],
+  title:
+    'Art Statement Feminist Sonographies of Situated Listening Amanda Gutiérrez as part of Collectiva Sono-(soro)ridades*',
+  subtitle:
+    '*Sono-(soro)ridades collective members: Ana Alfonsina Mora, Laura Balboa, Victoria Polti, Gabriela Acevez-Sepúlveda, Freya Sinovieff, and Amanda Gutiérrez.',
+  description: `Cette installation matérialise une recherche-création collective en lien avec des pratiques multidisciplinaires individuelles qui mettent en œuvre des méthodologies féministes décoloniales dans le domaine du son. Nous avons nommé ces pratiques de recherche Sono-(soro)ridades1, dans le cadre de la participation de la pensée collective aux études de genre et des pratiques sonores situées dans le Sud global ainsi que des conséquences politiques de la colonialité. Sonographies féministes de l’écoute située met en lumière des expériences d’écoute sonore et musicale à partir de « savoirs situés » (Haraway, 1988) et de pratiques sonores en dialogue en Abya-Yala, établissant des figures d’émancipation et de protestation, revendiquant les mouvements sociaux et les expressions de genre qui émergent dans ce territoire. En lien avec l’écoute située, mon travail s’appuie sur la marche en tant qu’expérience d’énonciation collective par la résonance. La marche sonore permet de matérialiser les méthodologies féministes afin d’affirmer l’agentivité sonore et l’audibilité. Nous abordons cette expérience par l’intermédiaire du corporel, en occupant l’espace public tout en accueillant les affects, en marchant tout en criant pour « faire apparaître la politique de genre et le droit » (Butler, 2015). Cette installation propose trois niveaux de lecture : 1) le niveau sonore, 2) le niveau textuel et 3) le niveau graphique (cartographie conceptuelle) afin de permettre au public d’accéder à divers points de vue sensoriels. La partie sonore est présentée au moyen d’une bande son de 54 minutes présentant la voix commune hors champ. Elle décrit l’évolution et les principes de l’ensemble du collectif sur le plan sonore, en tissant les six compositions de notre recherche-création. Ana Alfonsina Mora et Laura Balboa proposent une sélection de bandes musicales en lien avec leur recherche sur les musiques et les sons produits par des femmes, des musiciennes queer, transgenres et non-binaires dans les Amériques. Leurs bases de données en ligne s’inscrivent dans leur activité en radio Internet au sein de Bulla Radio et Minga Radio, toutes deux diffusées par Radio Nopal au Mexique et Radio CAso en Argentine. Enfin, la carte conceptuelle présente les pratiques artistiques, les mots-clés scientifiques et les cadres conceptuels associés à chacune des membres. En ce qui concerne notre modèle de collaboration, la réalisation de l’œuvre a fait l’objet de discussions et d’une planification en équipe, entièrement au moyen d’échanges virtuels et de partages en ligne. Cette méthode numérique nous a fait réfléchir à la nature fondamentale de nos rôles, à savoir que la recherche-création collective fluctue et évolue au sein de chaque projet par le biais de plateformes virtuelles. Étant donné que nous avons plusieurs projets en cours, les membres utilisent de manière collaborative différents modèles en ligne qui facilitent à la fois nos communications et la création de connaissances. Une version participative de ce travail sera présentée sous la forme d’une promenade sonore, matérialisant des pratiques d’écoute en une performativité relationnelle. Les «oreilles féministes» (Ahmed, 2022) des auditrices et auditeurs seront activées par l’exécution d’une partition sonore en relation avec une plateforme numérique AR. La promenade sera présentée début novembre dans le cadre de l’exposition en cours et de la conférence universitaire Plateformes et usages. Si vous désirez en savoir davantage sur cette œuvre, nous vous invitons à activer le code QR ci-dessous. Traduction : Françoise Miquet.
+  
+<a href="https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing</a> 
+  
+  1 Le collectif Sono-(soro)ridades a vu le jour en 2020 à l’occasion du panel Sono-sororidades organisé dans le cadre du Red de Ecología Acústica (Réseau d’écologie acoustique), au Mexique. Il a évolué vers des projets d’écriture universitaire, des ateliers, des œuvres d’art et des séminaires tenus dans des festivals, des laboratoires médiatiques, des symposiums et des conférences. De façon encore plus importante, nous avons créé un cercle de relations qui nourrit le soin de l’autre, les connexions personnelles et les amitiés, dans l’intérêt commun d’aborder et de transmettre sous forme écrite notre connaissance à travers la pensée intersectionnelle. Dans ce contexte, la pièce vise à retracer les diverses voies de recherche que les membres du collectif abordent avec le son comme point de départ.`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
 }
 ---
 
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
     <div class="container mx-auto flex gap-8">
-      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
-      <div class="flex-1 p-8">
-        <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
-      </div>
-
-      <!-- Right Half: Text Content -->
       <div class="flex-1 p-8">
         <div>
           <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>

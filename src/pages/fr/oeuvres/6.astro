@@ -6,8 +6,8 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '6', 10)
-const totalPages = 15 // Set this to the total number of pages you have
-const galleryColumns = 2
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -16,15 +16,36 @@ const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : n
 const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title:
-    'Marie-Caroline Neuvillers-Prudhon et Gaëtan Rivière Communauté balletomane par l’image. Narration des identités des balletomanes sur Instagram',
+  title: 'Vidéos de YouTubers',
   subtitle: '',
-  description: `Issue d’un travail de recherche en cours sur les pratiques numériques et créatives des communautés de balletomanes sur Instagram, cette proposition regroupe 1452 photographies tirées de 11 comptes dédiés à l’univers du ballet et de la danse classique. Agencées sous la forme d’une mosaïque, ces images représentent autant de panthéons numériques, créés par celles et ceux qui alimentent parfois quotidiennement leur compte. La plateforme devient alors le moyen de démontrer leur connaissance des codes et des normes esthétiques et symboliques de leur communauté, tout comme celui de construire le récit de leur identité au sein d’un processus de créativité numérique. `,
-  images: [
-    '/assets/img/communaute-balletomane-par-limage/1.jpg',
-    '/assets/img/communaute-balletomane-par-limage/2.jpg',
-    '/assets/img/communaute-balletomane-par-limage/3.jpg',
-  ],
+  description: `Les ambiances sont des arrangements sonores mêlant divers bruits afin de recréer l’atmosphère des lieux culte d’une œuvre télévisuelle telle que les chambres des personnages principaux ou le café où ceux-ci ont coutume de se retrouver. Les extraits de dialogues, fréquents dans ces créations audio, renforcent le sentiment d’être auprès des protagonistes, d’être assez proche d’elleux pour entendre leurs conversations et y prendre part. Les ASMR roleplay permettent également de passer un temps privilégié en compagnie de ses protagonistes favoris. Les ASMRtistes incarnent dans ces créations des héros de fiction. Iels maintiennent un contact visuel avec les spectateurs/ trices en regardant l’objectif de la caméra. Iels s’adressent directement à elleux, leur posant des questions et réagissant à leurs réponses, toujours à voix basse puisque le but de l’ASMR est d’induire un état de relaxation. Ultimement, les ASMR roleplay visent autant à détendre le public qu’à lui proposer des scénarios à même de prolonger les trames narratives développées au sein de la série. Les vidéos de shifting ont, pour leur part, pour objectif d’aider chacun.e à transiter du monde du réel vers l’univers fictionnel de son choix. Des directives précises peuvent être fournies au public. La plupart des vidéos couplent, cependant, les musiques de la série à des images subliminales, permettant aux spectateurs/trices de visualiser les protagonistes avec lesquels iels interagiront ainsi que les espaces au sein desquels iels pourront vivre les aventures qu’iels souhaitent une fois la réalité qu’iels désirent atteinte.
+  
+AMBIANCE
+
+Ambiance - Hannibal's Office (drawing, fireplace, music) par Ambiance Magic
+<a href="https://www.youtube.com/watch?v=aKugpx4_Wi0">https://www.youtube.com/watch?v=aKugpx4_Wi0</a>
+
+In the Impala with Sam and Dean (focus, relax, sleep) par Adri’s Ambience
+<a href="https://www.youtube.com/watch?v=-GI5zOEO4w4">https://www.youtube.com/watch?v=-GI5zOEO4w4</a>
+
+ASMR
+
+Daryl Dixon Saves You ASMR Walking Dead Roleplay par Jimち ASMR
+<a href="https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s">https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s</a>
+ 
+Dunder Mifflin, This is Pam ! par Gibi ASMR
+<a href="https://www.youtube.com/watch?v=3HGKju4kUNc">https://www.youtube.com/watch?v=3HGKju4kUNc</a>
+ 
+ 
+SHIFTING
+
+Reality shift to Euphoria subliminal par Divine Subliminals
+<a href="https://www.youtube.com/watch?v=ktYhy5PyjhI">https://www.youtube.com/watch?v=ktYhy5PyjhI</a>
+ 
+SQUID GAME - Méditation guidée français SHIFTING et RÊVES LUCIDES - ALICE IN BORDERLAND Method par L’ermite des songes
+<a href="https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s">https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s</a>
+`,
+  images: ['/assets/img/videos-de-youtubers/1.jpg', '/assets/img/videos-de-youtubers/2.jpg'],
 }
 ---
 

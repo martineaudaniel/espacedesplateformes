@@ -5,7 +5,7 @@ import { Pagination } from 'accessible-astro-components'
 
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '1', 10)
-const totalPages = 15 // Set this to the total number of pages you have
+const totalPages = 13
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
@@ -16,35 +16,120 @@ const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 const artwork = {
   title: 'Début de la visite',
   subtitle: "L'espace des plateformes",
-  description: `Dans ces carrefours que sont les plateformes numériques se joue notre relation aux médias audiovisuels aujourd’hui. Des transactions ont lieu, les opinions s’agrègent, se forment et se déforment les communautés de sens et des « pratiques conversationnelles de l’image » (André Gunthert), éclatées en un devenir collectif et dans un cadre polyphonique. 
+  description_justified: `Dans ces carrefours que sont les plateformes numériques se joue notre relation aux médias audiovisuels aujourd’hui. Des transactions ont lieu, les opinions s’agrègent, se forment et se déforment les communautés de sens et des « pratiques conversationnelles de l’image » (André Gunthert), éclatées en un devenir collectif et dans un cadre polyphonique. 
 
 Ainsi, « La profusion qu’Internet et le numérique ont introduite dans la circulation des images permet de ne plus choisir entre l’appropriation et le partage ; au contraire, elle les confond. » (Mona Chollet).
 
 C’est bel et bien cette tension entre appropriation et partage qu’il s’agit ici de parcourir par le truchement de la notion d’espace des plateformes. Les plateformes ne sont pas des coquilles vides, de simples supports permettant l’expression d’individus et communautés. Elles nous offrent (ou nous imposent) des balises qui contiennent ou propulsent à nouveaux frais nos modalités de consommation et de création.
 
-L’espace des plateformes encourage les visiteuses et visiteurs à explorer des pratiques de création d’artistes ainsi que certains usages spécifiques, relevant de la sphère intime, des plateformes numériques contemporaines. L’accent est mis sur la dimension politique inscrite dans le concept d’espace. Elle nous permet de réfléchir aux dynamiques de pouvoir, aux inégalités toujours présentes dans la circulation et dans l’accès au numérique, mais aussi aux effets délétères de notre consommation effrénée sur la planète, tout comme de la course irresponsable vers des équipements à la durée de vie limitée. 
+L’espace des plateformes encourage les visiteuses et visiteurs à explorer des pratiques de création d’artistes ainsi que certains usages spécifiques, relevant de la sphère intime, des plateformes numériques contemporaines. L’accent est mis sur la dimension politique inscrite dans le concept d’espace. Elle nous permet de réfléchir aux dynamiques de pouvoir, aux inégalités toujours présentes dans la circulation et dans l’accès au numérique, mais aussi aux effets délétères de notre consommation effrénée sur la planète, tout comme de la course irresponsable vers des équipements à la durée de vie limitée.
 
-Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires culturelles, aborde plusieurs aspects de la place que les outils plateformisés ont prise dans notre quotidien. On y trouvera des perspectives nous éclairant sur les médias traditionnels et leur virage numérique, sur les contre-modèles qui tentent de s’opposer à la mainmise de quelques géants économiques, mais encore sur les façons par lesquelles les fans s’accommodent de ces logiques et, de manière plus large, sur notre rapport à la création et au partage en ligne.  
+Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires culturelles, aborde plusieurs aspects de la place que les outils plateformisés ont prise dans notre quotidien. On y trouvera des perspectives nous éclairant sur les médias traditionnels et leur virage numérique, sur les contre-modèles qui tentent de s’opposer à la mainmise de quelques géants économiques, mais encore sur les façons par lesquelles les fans s’accommodent de ces logiques et, de manière plus large, sur notre rapport à la création et au partage en ligne.
 `,
-  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+  description_remaining: `
+  
+  Commissariat de l’exposition
+  L’espace des plateformes
+
+  Commissariat général 
+
+  Christine Bernier, Marta Boni, Zaira Zarza
+  Professeures, Département d’histoire de l’art et d’études cinématographiques 
+
+  Équipe
+
+  Chercheurs, chercheuses, projet Plateformes et usages. Cinéma, télévision, jeu vidéo, création numérique : Marta Boni, Christine Bernier, Zaira Zarza, Joyce Cimper (UdeM), Barbara Laborde, Guillaume Soulez, Vincent Bilem, Florian Body, Joa Neves (Sorbonne Nouvelle – Paris 3). 
+
+  Équipe étudiante
+
+  Rédaction de textes : Joyce Cimper, Kai Sen Trieu, Mathieu Simard
+
+  Modélisation 3D (logiciel SketchUp) et identité visuelle : Renée Filbey, Agatha Lambert
+
+  Remerciements
+
+  LUDOV
+  Faculté de l’aménagement, Université de Montréal
+
+  Soutien financier
+
+  Conseil de recherches en sciences humaines (CRSH), Programme Connexion 
+  Carrefour des arts et des sciences
+  CRIHN
+  Laboratoire CinéMédias
+  Labo Télé
+
+  Commissariat : Christine Bernier, Marta Boni, Zaira Zarza 
+
+  Artistes 
+  Anastasia Bourlakova 
+  Amanda Gutiérrez 
+  Tara Karmous 
+  Darién Sánchez
+
+  Youtubeuses et youtubeurs
+  Adri’s Ambience
+  Ambiance Magic
+  Divine Subliminals 
+  Gibi ASMR
+  Jimち ASMR
+  L’ermite des songes
+
+  Chercheuses et chercheurs exposants
+  Marie-Caroline Neuvillers et Gaëtan Rivière
+  Katharina Niemeyer et Christine Thoër
+  `,
+  images: [
+    '/assets/img/logos/plateformes-et-usages.png',
+    '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
+    '/assets/img/logos/canada.png',
+    '/assets/img/logos/labo-tele.png',
+    '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
+    '/assets/img/logos/ludov.png',
+    '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg',
+    '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+  ],
 }
 ---
 
+<style>
+  /* Center the gallery and set image widths */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Space between images */
+  }
+
+  .image-gallery img {
+    max-width: 250px; /* Restrict images to a maximum width */
+    width: 100%; /* Make images responsive up to max-width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures images are not cropped */
+  }
+
+  .text-justify {
+    text-align: justify;
+  }
+</style>
+
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
-    <div class="container mx-auto flex gap-8">
-      <!-- Right Half: Text Content -->
-      <div class="flex-1 p-8">
-        <div>
-          <h1 class="mb-4 text-center text-4xl font-bold">{artwork.title}</h1>
-          <h3 class="mb-4 text-center text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
-          <p class="whitespace-pre-wrap text-center text-justify text-xl">{artwork.description}</p>
-        </div>
+    <div class="container mx-auto p-8">
+      <div>
+        <h1 class="mb-4 text-center text-4xl font-bold">{artwork.title}</h1>
+        <h3 class="mb-4 text-center text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+
+        <!-- Justified Content -->
+        <p class="whitespace-pre-wrap text-justify text-xl">{artwork.description_justified}</p>
+
+        <!-- Remaining Content without Justification -->
+        <p class="whitespace-pre-wrap text-center text-xl">{artwork.description_remaining}</p>
       </div>
     </div>
   </section>
 
-  <!-- Pagination -->
+  <!-- Pagination Section -->
   <div class="mt-12 grid place-content-center">
     <Pagination
       firstPage={firstPage}
@@ -54,5 +139,14 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
       currentPage={currentPage}
       totalPages={totalPages}
     />
-  </div>s
+  </div>
+
+  <!-- Image Gallery at the Bottom -->
+  <section class="my-16">
+    <div class="container mx-auto max-w-screen-lg p-8">
+      <div class="image-gallery">
+        {artwork.images.map((image, index) => <img key={index} src={image} alt={`Artwork ${index + 1}`} />)}
+      </div>
+    </div>
+  </section>
 </DefaultLayout>
