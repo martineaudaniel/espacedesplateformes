@@ -1,0 +1,91 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '2', 10)
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 2
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'La Fin des Paillassons',
+  subtitle: 'Clémentine Brochet et Tara Karmous',
+  description: `This project seeks to address an issue still often overlooked in museums: art history is a history of men, written by men, and generally intended for men. However, women, alongside other minorities, have indeed contributed to the production of the most iconic works in the West. It is time to see and hear them.
+  
+For this first prototype, we focused on a few women who had relationships with the painter Pablo Picasso. Through three of his works, you will encounter Olga Khokhlova, Marie-Thérèse Walter, and Dora Maar. All three were more than just muses passively posing for the painter; they influenced his work. La Fin des Paillassons also invites you to discover how the lives of these three women were marked by their relationship with Picasso.
+
+Thanks to augmented reality, it is possible to give a voice back to these figures, forgotten or distorted by the famous artist.
+
+• Put on the headphones
+• Open the La Fin des Paillassons app on your phone
+• Point at the painting that interests you
+• Enjoy your experience!
+
+The testimonies you will hear were written; they are not verbatim accounts, with a few exceptions. However, the content has been extensively documented to provide an interpretation as faithful as possible to the mentioned facts.
+
+<b>WARNING</b>: Due to the subjects addressed, some experiences may be distressing to the public. If you would like to know the nature of the content beforehand, please refer to the footnote below.`,
+  images: [
+    '/assets/img/la-fin-des-paillassons/1.jpg',
+    '/assets/img/la-fin-des-paillassons/2.jpg',
+    '/assets/img/la-fin-des-paillassons/3.jpg',
+  ],
+  notes: [
+    'The painting representing Marie-Thérèse Walter deals with pedocriminality and suicide.',
+    'The painting representing Dora Maar deals with domestic violence.',
+  ],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+        </div>
+
+        <!-- Notes Section -->
+        <section class="reference-section mt-8 border-t pt-4 text-sm text-gray-500">
+          <h2 class="text-lg font-bold">Notes</h2>
+          <ol class="list-decimal pl-5">
+            {
+              artwork.notes.map((note, index) => (
+                <li key={index} class="mt-2">
+                  {note}
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

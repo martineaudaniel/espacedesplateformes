@@ -1,5 +1,4 @@
 ---
-// src/pages/works/artwork1.astro
 import DefaultLayout from '../../../layouts/DefaultLayout.astro'
 import { Pagination } from 'accessible-astro-components'
 import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
@@ -18,14 +17,28 @@ const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 const artwork = {
   title: 'La Fin des Paillassons',
   subtitle: 'Clémentine Brochet et Tara Karmous',
-  description: `Ce projet tente de répondre à une problématique encore souvent ignorée dans les musées : l’histoire de l’art est une histoire d’hommes écrite par des hommes et généralement destinée aux hommes. Cependant, les femmes, en plus de d’autres minorités, ont bel et bien participé à la production des œuvres les plus emblématiques en Occident. Il est temps de les voir et de les écouter. Pour ce premier prototype, nous nous sommes concentrées sur quelques femmes qui ont entretenu une relation avec le peintre Pablo Picasso. À travers trois de ses œuvres, vous rencontrerez Olga Khokhlova, Marie-Thérèse Walter et Dora Maar. Toutes trois ont été plus que des muses posant passivement pour le peintre en influençant son travail. La Fin des paillassons vous invite aussi à découvrir comment la vie de ces trois femmes a été marquée par cette relation. Grâce à la réalité augmentée, il est possible de redonner une voix à ces figures oubliées ou déformées par le célèbre artiste. • Mettez le casque d’écoute sur vos oreilles • Ouvrez l’application La Fin des paillassons sur le téléphone • Pointez le tableau qui vous intéresse • Bonne expérience ! Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de paroles rapportées, à quelques exceptions près. Toutefois, le contenu a été largement documenté pour proposer une interprétation aussi fidèle que possible des faits mentionnés. 
-ATTENTION : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page1 
+  description: `Ce projet tente de répondre à une problématique encore souvent ignorée dans les musées : l’histoire de l’art est une histoire d’hommes écrite par des hommes et généralement destinée aux hommes. Cependant, les femmes, en plus de d’autres minorités, ont bel et bien participé à la production des œuvres les plus emblématiques en Occident. Il est temps de les voir et de les écouter.
 
-1Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide. Le tableau représentant Dora Maar traite de la violence domestique.`,
+Pour ce premier prototype, nous nous sommes concentrées sur quelques femmes qui ont entretenu une relation avec le peintre Pablo Picasso. À travers trois de ses œuvres, vous rencontrerez Olga Khokhlova, Marie-Thérèse Walter et Dora Maar. Toutes trois ont été plus que des muses posant passivement pour le peintre en influençant son travail. La Fin des paillassons vous invite aussi à découvrir comment la vie de ces trois femmes a été marquée par cette relation.
+
+Grâce à la réalité augmentée, il est possible de redonner une voix à ces figures oubliées ou déformées par le célèbre artiste.
+
+• Mettez le casque d’écoute sur vos oreilles
+• Ouvrez l’application La Fin des paillassons sur le téléphone
+• Pointez le tableau qui vous intéresse
+• Bonne expérience !
+
+Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de paroles rapportées, à quelques exceptions près. Toutefois, le contenu a été largement documenté pour proposer une interprétation aussi fidèle que possible des faits mentionnés.
+
+<b>ATTENTION</b> : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page<sup>1</sup>.`,
   images: [
     '/assets/img/la-fin-des-paillassons/1.jpg',
     '/assets/img/la-fin-des-paillassons/2.jpg',
     '/assets/img/la-fin-des-paillassons/3.jpg',
+  ],
+  notes: [
+    'Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide.',
+    'Le tableau représentant Dora Maar traite de la violence domestique.',
   ],
 }
 ---
@@ -45,6 +58,20 @@ ATTENTION : En raison des sujets abordés, certaines expériences peuvent heurte
           <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
           <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
         </div>
+
+        <!-- Notes Section -->
+        <section class="reference-section mt-8 border-t pt-4 text-sm text-gray-500">
+          <h2 class="text-lg font-bold">Notes</h2>
+          <ol class="list-decimal pl-5">
+            {
+              artwork.notes.map((note, index) => (
+                <li key={index} class="mt-2">
+                  {note}
+                </li>
+              ))
+            }
+          </ol>
+        </section>
       </div>
     </div>
   </section>

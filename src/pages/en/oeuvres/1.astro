@@ -1,0 +1,152 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '1', 10)
+const totalPages = 13
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'Début de la visite',
+  subtitle: "L'espace des plateformes",
+  description_justified: `In these crossroads that are digital platforms, our relationship with audiovisual media is at play today. Transactions take place, opinions aggregate, communities of meaning form and deform, and "conversational practices of the image" (André Gunthert) emerge, scattered in a collective becoming within a polyphonic framework.
+
+Thus, "The abundance that the Internet and digital technology have introduced into the circulation of images means that one no longer has to choose between appropriation and sharing; instead, they merge." (Mona Chollet).
+
+Indeed, it is this tension between appropriation and sharing that is explored here through the notion of platform space. Platforms are not empty shells, simple vehicles for the expression of individuals and communities. They offer us (or impose upon us) markers that contain or propel, in new ways, our modes of consumption and creation.
+
+The space of platforms encourages visitors to explore the creative practices of artists as well as certain specific, intimate uses of contemporary digital platforms. The emphasis is on the political dimension embedded in the concept of space. It allows us to reflect on power dynamics, the persistent inequalities in access and circulation within the digital realm, but also on the harmful effects of our relentless consumption on the planet, as well as the irresponsible race toward short-lived equipment.
+
+This exhibition, stemming from various disciplinary backgrounds, stances, and cultural areas, addresses several aspects of the role that platformized tools have taken in our daily lives. It presents perspectives that shed light on traditional media and their digital shift, on counter-models attempting to oppose the domination of a few economic giants, as well as on the ways fans adapt to these logics and, more broadly, on our relationship with online creation and sharing.
+`,
+  description_remaining: `
+  
+Curatorship of the Exhibition
+The Space of Platforms
+
+General Curatorship
+
+Christine Bernier, Marta Boni, Zaira Zarza
+Professors, Department of Art History and Film Studies
+
+Team
+
+Researchers, project Platforms and Uses. Cinema, television, video games, digital creation:
+Marta Boni, Christine Bernier, Zaira Zarza, Joyce Cimper (UdeM), Barbara Laborde, Guillaume Soulez, Vincent Bilem, Florian Body, Joa Neves (Sorbonne Nouvelle – Paris 3).
+
+
+Student Team
+
+Text writing: Joyce Cimper, Kai Sen Trieu, Mathieu Simard
+3D Modeling (SketchUp software) and Visual Identity: Renée Filbey, Agatha Lambert
+Acknowledgements
+
+LUDOV
+
+Faculty of Environmental Design, Université de Montréal
+
+Financial Support
+Social Sciences and Humanities Research Council (SSHRC), Connection Program
+Arts and Sciences Hub
+CRIHN
+CinéMédias Laboratory
+Labo Télé
+
+Curatorship:Christine Bernier, Marta Boni, Zaira Zarza
+
+Artists
+Anastasia Bourlakova
+Amanda Gutiérrez
+Tara Karmous
+Darién Sánchez
+
+YouTubers
+Adri’s Ambience
+Ambiance Magic
+Divine Subliminals
+Gibi ASMR
+Jimち ASMR
+L’ermite des songes
+
+Exhibiting Researchers
+Marie-Caroline Neuvillers and Gaëtan Rivière
+Katharina Niemeyer and Christine Thoër
+  `,
+  images: [
+    '/assets/img/logos/plateformes-et-usages.png',
+    '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
+    '/assets/img/logos/canada.png',
+    '/assets/img/logos/labo-tele.png',
+    '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
+    '/assets/img/logos/ludov.png',
+    '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg',
+    '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+  ],
+}
+---
+
+<style>
+  /* Center the gallery and set image widths */
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem; /* Space between images */
+  }
+
+  .image-gallery img {
+    max-width: 250px; /* Restrict images to a maximum width */
+    width: 100%; /* Make images responsive up to max-width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensures images are not cropped */
+  }
+
+  .text-justify {
+    text-align: justify;
+  }
+</style>
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto p-8">
+      <div>
+        <h1 class="mb-4 text-center text-4xl font-bold">{artwork.title}</h1>
+        <h3 class="mb-4 text-center text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+
+        <!-- Justified Content -->
+        <p class="whitespace-pre-wrap text-justify text-xl">{artwork.description_justified}</p>
+
+        <!-- Remaining Content without Justification -->
+        <p class="whitespace-pre-wrap text-center text-xl">{artwork.description_remaining}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination Section -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+
+  <!-- Image Gallery at the Bottom -->
+  <section class="my-16">
+    <div class="container mx-auto max-w-screen-lg p-8">
+      <div class="image-gallery">
+        {artwork.images.map((image, index) => <img key={index} src={image} alt={`Artwork ${index + 1}`} />)}
+      </div>
+    </div>
+  </section>
+</DefaultLayout>

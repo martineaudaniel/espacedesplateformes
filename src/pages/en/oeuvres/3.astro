@@ -1,0 +1,72 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '3', 10)
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'La peur de la mère-patrie (2023)',
+  subtitle: 'Anastasia Bourlakova',
+  description: `Anastasia Bourlakova, an independent Russian filmmaker and participant in the Kino movement since its founding in Montreal, addresses the unique emotion shared by citizens of totalitarian countries: the fear of their motherland.
+
+Scientific studies (Zammatteo and Botman 2019, Tarquinio and Auxéméry 2022) have shown that traumas such as war, imprisonment, and physical and psychological violence alter an individual's brain. This alteration embeds itself in the DNA and thus becomes hereditary. Fear can therefore be passed from one generation to the next. In the humanities, Marianne Hirsch speaks of postmemory, or the relationship of subsequent generations to often traumatic experiences that occurred before their birth but were transmitted to them so deeply that they seem to constitute their own memories (2008).
+
+Digital platforms, particularly social networks, offer ordinary citizens the opportunity to share their experiences and distribute unprecedented images that, in some cases, counterbalance propaganda or contribute to uncovering the truth.
+
+Thanks to this informal and uncensored sharing — notwithstanding the need for caution regarding the quality of unverified information — history is now captured by smartphones on the streets around the world. Whether it’s the filming of George Floyd’s murder by bystanders or the testimonies of Ukrainian civilians about the cruelty of Russian troops at the start of the war, which debunked the lie of an "anti-Nazi military operation," these testimonies circulate globally and provide direct evidence of reality. This projection of images uses "political humor" as a tool to highlight the urgency of raising awareness about the oppression of marginalized peoples. It is through this skewed perspective that the work offers a more visceral experience for visitors to this exhibition.
+
+Starting from images shared on social networks in the context of the war in Ukraine, the filmmaker traces her memory back through her childhood and the history of Russia to follow the trail of the emotion that ties her to her country: fear.
+
+The video uses original footage shot in Russia as well as archival materials and is part of the installation The Fear of the Motherland. The installation is a tent with a video projection that invites the public to immerse themselves in a frightening world that takes shape through the projection, manipulable objects, and interactive narration. The aim of the project is to raise awareness among Western audiences about this fear.
+
+<a href="https://www.notrecinemamaison.com/copy-of-notre-catalogue">https://www.notrecinemamaison.com/copy-of-notre-catalogue</a>`,
+  images: [
+    '/assets/img/la-peur-de-la-mere-patrie/1.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/2.jpg',
+    '/assets/img/la-peur-de-la-mere-patrie/3.jpg',
+  ],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

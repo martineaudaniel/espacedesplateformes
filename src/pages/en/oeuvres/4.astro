@@ -10,26 +10,26 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Scènes du déclic',
   subtitle: `Christine Thoër et Katharina Niemeyer`,
-  description: `« Ouais. Parce que (cette scène de Vampire Diaries) vraiment, ça m’avait bien poigné. » (Mitch, 25 ans) 
+  description: `« Yeah. Because (this scene from Vampire Diaries) really got to me." (Mitch, 25 years old)
 
-Les séries comportent parfois des histoires ou dialogues qui nous marquent, qui nous renvoient à nos vies, notre passé ou notre futur souhaité. Certaines scènes font déclic, s’installent doucement ou frontalement dans notre quotidien, puis dans nos souvenirs et récits de vie. Dans le cadre du projet Expériences des séries et construction identitaire, financé par le Conseil de recherche en sciences humaines du Canada (CRSH), une équipe universitaire de l’UQAM s’est intéressée à cerner le rôle que les jeunes adultes (18- 25 ans) attribuent à l’expérience des séries dans leur processus de construction identitaire, et notamment à leurs aspects narratifs et esthétiques. Il s’agit ici d’une rencontre entre l’univers fictif et celui de la réception; d’un moment de déclic : une scène qui déclenche quelque chose; une scène qui est souvent réécoutée et parfois réconforte, dans tous les cas, une scène qui marque et s’imprime dans le récit personnel. 
+Sometimes, series include stories or dialogues that resonate with us, reflecting our lives, our past, or our desired future. Certain scenes spark something within us, subtly or directly embedding themselves in our daily lives and later in our memories and life stories. As part of the Experiences of Series and Identity Construction project, funded by the Social Sciences and Humanities Research Council of Canada (SSHRC), a research team from UQAM sought to understand the role young adults (18-25 years old) attribute to their experience of series in their identity-building process, focusing particularly on their narrative and aesthetic aspects. This is an encounter between the fictional world and the audience's reception; a moment of spark: a scene that triggers something, a scene often re-watched and sometimes comforting, but always a scene that leaves a mark and embeds itself in personal storytelling.
 
-Cette installation vous invite à plonger dans l’univers du déclic de plusieurs personnes interviewées dont vous entendez la voix originale. Leurs noms ont été changés et la tonalité de leur voix légèrement modifiée pour préserver leur anonymat. 
+This installation invites you to dive into the spark moments of several interviewees, whose original voices you will hear. Their names have been changed, and the tone of their voices has been slightly modified to preserve their anonymity.
 
 Scènes du déclic: <a href="https://series.uqam.ca/exposition/">https://series.uqam.ca/exposition/</a>`,
   images: ['/assets/img/scenes-du-declic/1.jpg', '/assets/img/scenes-du-declic/2.jpg'],
   notes: [
-    'Conception et recherche : Christine Thoër et Katharina Niemeyer',
-    'Montage sonore : Ezra Teboul',
-    'Équipe : Sarah Blémur, Celina van Dembroucke, Chloé Charrette-Lalonde, Dimitra Laurence Larochelle, Catherine Montgomery, Ludovik Roy.',
+    'Design and research: Christine Thoër and Katharina Niemeyer',
+    'Sound editing: Ezra Teboul',
+    'Team: Sarah Blémur, Celina van Dembroucke, Chloé Charrette-Lalonde, Dimitra Laurence Larochelle, Catherine Montgomery, Ludovik Roy.',
   ],
 }
 ---

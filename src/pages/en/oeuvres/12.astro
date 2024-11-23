@@ -1,0 +1,79 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '12', 10)
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title:
+    'Art Statement Feminist Sonographies of Situated Listening Amanda Gutiérrez as part of Collectiva Sono-(soro)ridades*',
+  subtitle:
+    '*Sono-(soro)ridades collective members: Ana Alfonsina Mora, Laura Balboa, Victoria Polti, Gabriela Acevez-Sepúlveda, Freya Sinovieff, and Amanda Gutiérrez.',
+  description: `This installation frames a collective research-creation in connection with individual multidisciplinary practices enacting decolonial feminist methodologies in sound. We named these research practices <i>Sono-(soro)rities</i><sup>1</sup>, understanding the implication of collective thinking in the framework of gender studies and sonic practices situated in the Global South and the political consequences of coloniality. <b><i>Feminist Sonographies of Situated Listening</i></b> highlights sound and music listening experiences from ‘situated knowledges’ (Haraway, 1988) and sonic practices in dialogue within the Abya-Yala territory, establishing figures of emancipation and protest, claiming their social movements and gender expressions.
+
+In connection with situated listening, my work employs walking as an experience of collective enunciation through resonance. The soundwalk allows the embodiment of feminist methodologies to assert sonic agency and audibility. We approach this experience through the corporeal, taking the public space while embracing affections, shouting, and marching to enable ‘gender politics and the right to appear’ (Butler, 2015). This installation has three layers of reading, 1) Sonic, 2) Textual and 3) Graphical (conceptual mapping) to allow diverse points of sensory access to the public. The audio is presented through a 54 min soundtrack introducing the communal voice-over. It describes the evolution and principles of the collective whole, sonically speaking, weaving the six sound compositions of our research-creation. Ana Alfonsina Mora and Laura Balboa proposed the selection of the music soundtracks in connection to their research practice on sound and music production by women, queer, transgender, and non-binary musicians in the Americas. Their online databases are part of their incursion internet radio production as Bulla Radio and Minga Radio, both broadcasted through Radio Nopal in Mexico and Radio CAso in Argentina. Finally, the conceptual map presents each member’s artistic practices, academic keywords, and conceptual frameworks.
+
+Regarding our collaboration model, the piece was discussed and planned as a team entirely through virtual discussions and online sharing processes. This digital methodology made us reflect on our leading roles that the collective research-creation fluxes and evolves in each project through online platforms. Since we have several projects happening, each member enables collaboration using different online models that help our communication and knowledge creation.
+
+A participatory iteration of this work will be presented as a soundwalk, embodying listening practices through relational performativity. The listeners’ ‘feminist ears’ (Ahmed, 2022) will be activated through the execution of an aural score in connection with an AR digital platform. The walk will be presented in early November as part of the current exhibition and the academic conference <i>Plateformes et usages</i>.
+
+For more information about the artwork, visit the link below.
+  
+<a href="https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing</a>`,
+  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+  notes: [
+    'The collective Sono-(soro)rities started in 2020 on the panel Sono-sororidades at the Red de Ecología Acústica in Mexico. It has evolved into projects that compass academic writing, workshops, artworks, and seminars in festivals, media labs, symposiums, and conferences, but most importantly, a circle that opens care, personal connections, and friendships with the common interest of approaching and writing our knowledge through intersectional thinking. In that context, the piece aims to trace the diverse lines of research that the members of the collective approach through sound as the medium of departure.',
+  ],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+        </div>
+
+        <!-- Notes Section -->
+        <section class="reference-section mt-8 border-t pt-4 text-sm text-gray-500">
+          <h2 class="text-lg font-bold">Notes</h2>
+          <ol class="list-decimal pl-5">
+            {
+              artwork.notes.map((note, index) => (
+                <li key={index} class="mt-2">
+                  {note}
+                </li>
+              ))
+            }
+          </ol>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

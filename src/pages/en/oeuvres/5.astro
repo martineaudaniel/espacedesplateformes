@@ -10,15 +10,15 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Communauté balletomane par l’image. Narration des identités des balletomanes sur Instagram',
   subtitle: 'Marie-Caroline Neuvillers-Prudhon et Gaëtan Rivière',
-  description: `Issue d’un travail de recherche en cours sur les pratiques numériques et créatives des communautés de balletomanes sur Instagram, cette proposition regroupe 1452 photographies tirées de 11 comptes dédiés à l’univers du ballet et de la danse classique. Agencées sous la forme d’une mosaïque, ces images représentent autant de panthéons numériques, créés par celles et ceux qui alimentent parfois quotidiennement leur compte. La plateforme devient alors le moyen de démontrer leur connaissance des codes et des normes esthétiques et symboliques de leur communauté, tout comme celui de construire le récit de leur identité au sein d’un processus de créativité numérique. `,
+  description: `Based on ongoing research on the digital and creative practices of ballet enthusiasts on Instagram, this project gathers 1,452 photographs from 11 accounts dedicated to the world of ballet and classical dance. Arranged in a mosaic format, these images represent digital pantheons, created by those who often update their accounts daily. The platform thus becomes a means to showcase their knowledge of the aesthetic and symbolic codes and norms of their community, as well as a way to construct a narrative of their identity within a process of digital creativity.`,
   images: [
     '/assets/img/communaute-balletomane-par-limage/1.jpg',
     '/assets/img/communaute-balletomane-par-limage/2.jpg',

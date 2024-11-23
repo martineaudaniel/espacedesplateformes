@@ -1,0 +1,58 @@
+---
+// src/pages/works/artwork1.astro
+import DefaultLayout from '../../../layouts/DefaultLayout.astro'
+import { Pagination } from 'accessible-astro-components'
+import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
+
+// Get current page number from the filename (e.g., "1" for 1.astro)
+const currentPage = parseInt(Astro.params.pageNumber || '9', 10)
+const totalPages = 13 // Set this to the total number of pages you have
+const galleryColumns = 1
+
+// Pagination URLs
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+
+const artwork = {
+  title: 'La télécommande',
+  subtitle: '',
+  description: `Not without controversy, director Peter Greenaway declared in 2007: “Cinema’s death date was 31 September 1983, when the remote-control zapper was introduced to the living room, because now cinema has to be interactive, multimedia art.” The filmmaker was highlighting the need to rethink all media for them to survive in the digital and interactive age, which could potentially be fatal for traditional theater experiences.
+
+The remote control we see in this display case, for example, now includes buttons giving us direct access to certain platforms. The idea of distance or remote control, a pillar of television viewing practices as it moved away from linear habits, enhances and facilitates access to a growing number of content options, while normalizing multitasking and encouraging stillness. Functional for choice and control, like an extension of our bodies—much like cell phones—it becomes an integral part of our consumption rituals, following Marshall McLuhan’s concept. But how far can freedom of choice and control really go when, in the age of algorithms, content is often already curated for us based on traces of our previous consumption?`,
+  images: ['/assets/img/la-telecommande/1.jpg', '/assets/img/la-telecommande/2.jpg'],
+}
+---
+
+<DefaultLayout title={artwork.title}>
+  <section class="my-16">
+    <div class="container mx-auto flex gap-8">
+      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
+      <div class="flex-1 p-8">
+        <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+      </div>
+
+      <!-- Right Half: Text Content -->
+      <div class="flex-1 p-8">
+        <div>
+          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pagination -->
+  <div class="mt-12 grid place-content-center">
+    <Pagination
+      firstPage={firstPage}
+      previousPage={previousPage}
+      nextPage={nextPage}
+      lastPage={lastPage}
+      currentPage={currentPage}
+      totalPages={totalPages}
+    />
+  </div>
+</DefaultLayout>

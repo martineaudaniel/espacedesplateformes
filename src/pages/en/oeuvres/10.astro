@@ -10,17 +10,17 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
+const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
 
 const artwork = {
-  title: 'L’espace de visionnement comme espace intime : Projection de photographies d’étudiantes et d’étudiants ',
+  title: 'L’espace de visionnement comme espace intime : Projection of photographs by students',
   subtitle: 'Marta Boni',
-  description: `Notre relation aux plateformes passe d’abord par la construction d’un espace personnel et privé. Les plateformes demandent à celleux qui les consomment non seulement d’assister à un défilement d’images et de sons, mais aussi de développer un savoir technique et de se servir de celui-ci pour leurs besoins de divertissement et de découverte du monde.
+  description: `Our relationship with platforms begins with the creation of a personal and private space. Platforms ask their users not only to passively view a stream of images and sounds but also to develop technical skills and use them to meet their entertainment needs and explore the world.
 
-Dans ces photographies, prises par des usagers et usagères qui ont voulu partager leur espace de visionnement maison de cinéma et de télévision, le classique téléviseur, l’écran d’ordinateur, la tablette, le téléphone ou la console de jeu deviennent les composantes d’un rituel quotidien adapté à des besoins différents. On voit bien que l’expérience de visionnement dépend d’une maîtrise individuelle des technologies et des conditions matérielles et économiques dont nous bénéficions pour avoir accès aux plateformes, qui nous permettent de nous construire un espace, tout en profitant du plaisir de se retrouver chez nous, attractive parfois bien plus puissante que de se rendre dans une salle de cinéma... et le confort de l’espace dans lequel se déroule l’expérience de visionnement prime souvent sur le contenu... `,
+In these photos, taken by users who wanted to share their home cinema and television viewing spaces, the classic TV, computer screen, tablet, phone, or game console become elements of a daily ritual tailored to individual needs. We see that the viewing experience depends on personal mastery of technology and on the material and economic conditions that enable our access to platforms, allowing us to create a personal space while enjoying the comfort of being at home—often a far more powerful allure than going to a movie theater... and the comfort of the space where the viewing experience unfolds often takes precedence over the content itself.`,
   images: [
     '/assets/img/lespace-de-visionnement-comme-espace-intime/1.jpg',
     '/assets/img/lespace-de-visionnement-comme-espace-intime/2.jpg',
@@ -33,15 +33,7 @@ Dans ces photographies, prises par des usagers et usagères qui ont voulu partag
     '/assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg',
     '/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg',
   ],
-  notes: [
-    'Remerciements :',
-    'Carl',
-    'Greta',
-    'Myriam',
-    'Philippe',
-    'Valérie',
-    'Contributrices et contributeurs anonymes',
-  ],
+  notes: ['Carl', 'Greta', 'Myriam', 'Philippe', 'Valérie', 'Contributrices et contributeurs anonymes'],
 }
 ---
 
@@ -62,7 +54,7 @@ Dans ces photographies, prises par des usagers et usagères qui ont voulu partag
         </div>
         <!-- Notes Section -->
         <section class="reference-section mt-8 border-t pt-4 text-sm text-gray-500">
-          <h2 class="text-lg font-bold">Special thanks</h2>
+          <h2 class="text-lg font-bold">Remerciements</h2>
           <ol class="list-disc pl-5">
             {
               artwork.notes.map((note, index) => (
