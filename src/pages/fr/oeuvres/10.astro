@@ -17,7 +17,7 @@ const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'L’espace de visionnement comme espace intime : Projection de photographies d’étudiantes et d’étudiants ',
-  subtitle: 'Marta Boni',
+  subtitle: '',
   description: `Notre relation aux plateformes passe d’abord par la construction d’un espace personnel et privé. Les plateformes demandent à celleux qui les consomment non seulement d’assister à un défilement d’images et de sons, mais aussi de développer un savoir technique et de se servir de celui-ci pour leurs besoins de divertissement et de découverte du monde.
 
 Dans ces photographies, prises par des usagers et usagères qui ont voulu partager leur espace de visionnement maison de cinéma et de télévision, le classique téléviseur, l’écran d’ordinateur, la tablette, le téléphone ou la console de jeu deviennent les composantes d’un rituel quotidien adapté à des besoins différents. On voit bien que l’expérience de visionnement dépend d’une maîtrise individuelle des technologies et des conditions matérielles et économiques dont nous bénéficions pour avoir accès aux plateformes, qui nous permettent de nous construire un espace, tout en profitant du plaisir de se retrouver chez nous, attractive parfois bien plus puissante que de se rendre dans une salle de cinéma... et le confort de l’espace dans lequel se déroule l’expérience de visionnement prime souvent sur le contenu... `,
@@ -33,15 +33,7 @@ Dans ces photographies, prises par des usagers et usagères qui ont voulu partag
     '/assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg',
     '/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg',
   ],
-  notes: [
-    'Remerciements :',
-    'Carl',
-    'Greta',
-    'Myriam',
-    'Philippe',
-    'Valérie',
-    'Contributrices et contributeurs anonymes',
-  ],
+  notes: ['Carl', 'Greta', 'Myriam', 'Philippe', 'Valérie', 'Contributrices et contributeurs anonymes'],
 }
 ---
 
@@ -62,7 +54,7 @@ Dans ces photographies, prises par des usagers et usagères qui ont voulu partag
         </div>
         <!-- Notes Section -->
         <section class="reference-section mt-8 border-t pt-4 text-sm text-gray-500">
-          <h2 class="text-lg font-bold">Special thanks</h2>
+          <h2 class="text-lg font-bold">Remerciements</h2>
           <ol class="list-disc pl-5">
             {
               artwork.notes.map((note, index) => (
