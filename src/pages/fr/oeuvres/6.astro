@@ -17,47 +17,116 @@ const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Vidéos de YouTubers',
-  subtitle: '',
-  description: `Les ambiances sont des arrangements sonores mêlant divers bruits afin de recréer l’atmosphère des lieux culte d’une œuvre télévisuelle telle que les chambres des personnages principaux ou le café où ceux-ci ont coutume de se retrouver. Les extraits de dialogues, fréquents dans ces créations audio, renforcent le sentiment d’être auprès des protagonistes, d’être assez proche d’elleux pour entendre leurs conversations et y prendre part. Les ASMR roleplay permettent également de passer un temps privilégié en compagnie de ses protagonistes favoris. Les ASMRtistes incarnent dans ces créations des héros de fiction. Iels maintiennent un contact visuel avec les spectateurs/ trices en regardant l’objectif de la caméra. Iels s’adressent directement à elleux, leur posant des questions et réagissant à leurs réponses, toujours à voix basse puisque le but de l’ASMR est d’induire un état de relaxation. Ultimement, les ASMR roleplay visent autant à détendre le public qu’à lui proposer des scénarios à même de prolonger les trames narratives développées au sein de la série. Les vidéos de shifting ont, pour leur part, pour objectif d’aider chacun.e à transiter du monde du réel vers l’univers fictionnel de son choix. Des directives précises peuvent être fournies au public. La plupart des vidéos couplent, cependant, les musiques de la série à des images subliminales, permettant aux spectateurs/trices de visualiser les protagonistes avec lesquels iels interagiront ainsi que les espaces au sein desquels iels pourront vivre les aventures qu’iels souhaitent une fois la réalité qu’iels désirent atteinte.
-  
-<h3>AMBIANCE</h3>
-Ambiance - Hannibal's Office (drawing, fireplace, music) par Ambiance Magic
-<a href="https://www.youtube.com/watch?v=aKugpx4_Wi0">https://www.youtube.com/watch?v=aKugpx4_Wi0</a>
-
-In the Impala with Sam and Dean (focus, relax, sleep) par Adri’s Ambience
-<a href="https://www.youtube.com/watch?v=-GI5zOEO4w4">https://www.youtube.com/watch?v=-GI5zOEO4w4</a>
-
-<h3>ASMR</h3>
-Daryl Dixon Saves You ASMR Walking Dead Roleplay par Jimち ASMR
-<a href="https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s">https://www.youtube.com/watch?v=1xTYoO_Sk0U&t=149s</a>
-
-Dunder Mifflin, This is Pam ! par Gibi ASMR
-<a href="https://www.youtube.com/watch?v=3HGKju4kUNc">https://www.youtube.com/watch?v=3HGKju4kUNc</a>
-
-<h3>SHIFTING</h3>
-Reality shift to Euphoria subliminal par Divine Subliminals
-<a href="https://www.youtube.com/watch?v=ktYhy5PyjhI">https://www.youtube.com/watch?v=ktYhy5PyjhI</a>
-
-SQUID GAME - Méditation guidée français SHIFTING et RÊVES LUCIDES - ALICE IN BORDERLAND Method par L’ermite des songes
-<a href="https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s">https://www.youtube.com/watch?v=OVFv4KrzQYs&t=415s</a>`,
+  subtitle: 'Joyce Cimper',
+  description: `Les ambiances sont des arrangements sonores mêlant divers bruits afin de recréer l’atmosphère des lieux culte d’une œuvre télévisuelle telle que les chambres des personnages principaux ou le café où ceux-ci ont coutume de se retrouver. Les extraits de dialogues, fréquents dans ces créations audio, renforcent le sentiment d’être auprès des protagonistes, d’être assez proche d’elleux pour entendre leurs conversations et y prendre part. Les ASMR roleplay permettent également de passer un temps privilégié en compagnie de ses protagonistes favoris. Les ASMRtistes incarnent dans ces créations des héros de fiction. Iels maintiennent un contact visuel avec les spectateurs/ trices en regardant l’objectif de la caméra. Iels s’adressent directement à elleux, leur posant des questions et réagissant à leurs réponses, toujours à voix basse puisque le but de l’ASMR est d’induire un état de relaxation. Ultimement, les ASMR roleplay visent autant à détendre le public qu’à lui proposer des scénarios à même de prolonger les trames narratives développées au sein de la série. Les vidéos de shifting ont, pour leur part, pour objectif d’aider chacun.e à transiter du monde du réel vers l’univers fictionnel de son choix. Des directives précises peuvent être fournies au public. La plupart des vidéos couplent, cependant, les musiques de la série à des images subliminales, permettant aux spectateurs/trices de visualiser les protagonistes avec lesquels iels interagiront ainsi que les espaces au sein desquels iels pourront vivre les aventures qu’iels souhaitent une fois la réalité qu’iels désirent atteinte.`,
   images: ['/assets/img/videos-de-youtubers/1.jpg', '/assets/img/videos-de-youtubers/2.jpg'],
 }
 ---
 
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
-    <div class="container mx-auto flex gap-8">
-      <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
-      <div class="flex-1 p-8">
-        <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+    <div class="container mx-auto">
+      <!-- Two-column layout: Image Gallery and Text Content -->
+      <div class="flex gap-8">
+        <!-- Left Half: Image Gallery -->
+        <div class="flex-1 p-8">
+          <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+        </div>
+
+        <!-- Right Half: Text Content -->
+        <div class="flex-1 p-8">
+          <div>
+            <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
+            <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+            <!-- Description Text -->
+            <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+          </div>
+        </div>
       </div>
 
-      <!-- Right Half: Text Content -->
-      <div class="flex-1 p-8">
-        <div>
-          <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
-          <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
-          <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
+      <!-- Full-width YouTube Section -->
+      <div class="mt-16">
+        <h3 class="mb-4 text-3xl font-semibold">Vidéos</h3>
+
+        <!-- AMBIANCE -->
+        <div class="mb-8">
+          <h4 class="text-2xl font-bold">AMBIANCE</h4>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/aKugpx4_Wi0"
+              title="Ambiance - Hannibal's Office"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/-GI5zOEO4w4"
+              title="In the Impala with Sam and Dean"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- ASMR -->
+        <div class="mb-8">
+          <h4 class="text-2xl font-bold">ASMR</h4>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/1xTYoO_Sk0U"
+              title="Daryl Dixon Saves You ASMR"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/3HGKju4kUNc"
+              title="Dunder Mifflin, This is Pam!"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- SHIFTING -->
+        <div class="mb-8">
+          <h4 class="text-2xl font-bold">SHIFTING</h4>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/ktYhy5PyjhI"
+              title="Reality shift to Euphoria subliminal"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div class="mt-4">
+            <iframe
+              class="aspect-video w-full"
+              src="https://www.youtube.com/embed/OVFv4KrzQYs"
+              title="SQUID GAME - Méditation guidée"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
         </div>
       </div>
     </div>

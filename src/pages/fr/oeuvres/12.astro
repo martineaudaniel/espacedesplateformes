@@ -30,10 +30,10 @@ En ce qui concerne notre modèle de collaboration, la réalisation de l’oeuvre
 
 Si vous désirez en savoir davantage sur cette oeuvre, nous vous invitons à visiter le lien ci-dessous:
 
-<a href="https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening?si=a8e431a9d39e4918869cfde71356347a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing</a>
+<a href="https://amandagutierrez.net/eng/portfolio/feminist-sonographies-of-situated-listening/" target="_blank">https://amandagutierrez.net/eng/portfolio/feminist-sonographies-of-situated-listening/</a>
 
 Traduction : Françoise Miquet.`,
-  images: ['/assets/img/thumbnails/1.jpg', '/assets/img/thumbnails/2.jpg', '/assets/img/thumbnails/3.jpg'],
+  images: ['/assets/img/art-statement-feminist-sonographies-of-situated-listening/2.jpg'],
   notes: [
     'Le collectif Sono-(soro)ridades a vu le jour en 2020 à l’occasion du panel Sono-sororidades organisé dans le cadre du Red de Ecología Acústica (Réseau d’écologie acoustique), au Mexique. Il a évolué vers des projets d’écriture universitaire, des ateliers, des oeuvres d’art et des séminaires tenus dans des festivals, des laboratoires médiatiques, des symposiums et des conférences. De façon encore plus importante, nous avons créé un cercle de relations qui nourrit le soin de l’autre, les connexions personnelles et les amitiés, dans l’intérêt commun d’aborder et de transmettre sous forme écrite notre connaissance à travers la pensée intersectionnelle. Dans ce contexte, la pièce vise à retracer les diverses voies de recherche que les membres du collectif abordent avec le son comme point de départ.',
   ],
@@ -47,6 +47,32 @@ Traduction : Françoise Miquet.`,
         <div>
           <h1 class="mb-4 text-4xl font-bold">{artwork.title}</h1>
           <h3 class="mb-4 text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
+
+          <PhotoSwipeGallery images={artwork.images} columns={galleryColumns} />
+          <iframe
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1509568786&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+          ></iframe><div
+            style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"
+          >
+            <a
+              href="https://soundcloud.com/cadadosis"
+              title="cadadosis"
+              target="_blank"
+              style="color: #cccccc; text-decoration: none;">cadadosis</a
+            > · <a
+              href="https://soundcloud.com/cadadosis/sono-sororities-feminist-sonographies-of-situated-listening"
+              title="Sono-Soro(rities): Feminist Sonographies of Situated Listening"
+              target="_blank"
+              style="color: #cccccc; text-decoration: none;"
+              >Sono-Soro(rities): Feminist Sonographies of Situated Listening</a
+            >
+          </div>
+
           <div class="whitespace-pre-wrap text-xl" set:html={artwork.description} />
         </div>
 

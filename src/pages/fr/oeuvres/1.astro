@@ -24,8 +24,7 @@ C’est bel et bien cette tension entre appropriation et partage qu’il s’agi
 
 L’espace des plateformes encourage les visiteuses et visiteurs à explorer des pratiques de création d’artistes ainsi que certains usages spécifiques, relevant de la sphère intime, des plateformes numériques contemporaines. L’accent est mis sur la dimension politique inscrite dans le concept d’espace. Elle nous permet de réfléchir aux dynamiques de pouvoir, aux inégalités toujours présentes dans la circulation et dans l’accès au numérique, mais aussi aux effets délétères de notre consommation effrénée sur la planète, tout comme de la course irresponsable vers des équipements à la durée de vie limitée.
 
-Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires culturelles, aborde plusieurs aspects de la place que les outils plateformisés ont prise dans notre quotidien. On y trouvera des perspectives nous éclairant sur les médias traditionnels et leur virage numérique, sur les contre-modèles qui tentent de s’opposer à la mainmise de quelques géants économiques, mais encore sur les façons par lesquelles les fans s’accommodent de ces logiques et, de manière plus large, sur notre rapport à la création et au partage en ligne.
-`,
+Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires culturelles, aborde plusieurs aspects de la place que les outils plateformisés ont prise dans notre quotidien. On y trouvera des perspectives nous éclairant sur les médias traditionnels et leur virage numérique, sur les contre-modèles qui tentent de s’opposer à la mainmise de quelques géants économiques, mais encore sur les façons par lesquelles les fans s’accommodent de ces logiques et, de manière plus large, sur notre rapport à la création et au partage en ligne. Cette exposition s'inscrit dans le projet <a href="https://plateformesetusages.labocinemedias.ca/" target="_blank">Plateformes et Usages</a>, qui a eu lieu à Montréal à l'automne/hiver 2023-2024.`,
   description_remaining: `
   
   Commissariat de l’exposition
@@ -80,14 +79,24 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
   Katharina Niemeyer et Christine Thoër
   `,
   images: [
-    '/assets/img/logos/plateformes-et-usages.png',
-    '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
-    '/assets/img/logos/canada.png',
-    '/assets/img/logos/labo-tele.png',
-    '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
-    '/assets/img/logos/ludov.png',
-    '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg',
-    '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+    { src: '/assets/img/logos/plateformes-et-usages.png', url: 'https://plateformesetusages.labocinemedias.ca/' },
+    {
+      src: '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
+      url: 'https://fas.umontreal.ca/salles/carrefour/',
+    },
+    { src: '/assets/img/logos/canada.png', url: 'https://www.canada.ca/' },
+    { src: '/assets/img/logos/labo-tele.png', url: 'https://labotele.com/' },
+    {
+      src: '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
+      url: 'https://www.crihn.org/',
+    },
+    { src: '/assets/img/logos/ludov.png', url: 'https://www.ludov.ca/' },
+    { src: '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg', url: 'https://www.sshrc-crsh.gc.ca/' },
+    {
+      src: '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+      url: 'https://histart.umontreal.ca/accueil/',
+    },
+    { src: '/assets/img/logos/laboratoire-innovation.png', url: 'https://laboinnovation.umontreal.ca/accueil/' },
   ],
 }
 ---
@@ -108,6 +117,14 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
     object-fit: contain; /* Ensures images are not cropped */
   }
 
+  /* Add a white background to the image gallery section */
+  .image-gallery-wrapper {
+    background-color: white; /* Set the background color to white */
+    padding: 2rem; /* Add padding around the images */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a slight shadow for better separation */
+  }
+
   .text-justify {
     text-align: justify;
   }
@@ -121,10 +138,10 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
         <h3 class="mb-4 text-center text-2xl font-semibold text-gray-400">{artwork.subtitle}</h3>
 
         <!-- Justified Content -->
-        <p class="whitespace-pre-wrap text-justify text-xl">{artwork.description_justified}</p>
+        <div class="whitespace-pre-wrap text-justify text-xl" set:html={artwork.description_justified} />
 
         <!-- Remaining Content without Justification -->
-        <p class="whitespace-pre-wrap text-center text-xl">{artwork.description_remaining}</p>
+        <div class="whitespace-pre-wrap text-center text-xl" set:html={artwork.description_remaining} />
       </div>
     </div>
   </section>
@@ -144,8 +161,16 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
   <!-- Image Gallery at the Bottom -->
   <section class="my-16">
     <div class="container mx-auto max-w-screen-lg p-8">
-      <div class="image-gallery">
-        {artwork.images.map((image, index) => <img key={index} src={image} alt={`Artwork ${index + 1}`} />)}
+      <div class="image-gallery-wrapper">
+        <div class="image-gallery">
+          {
+            artwork.images.map((image, index) => (
+              <a key={index} href={image.url} target="_blank" rel="noopener noreferrer" class="image-link">
+                <img src={image.src} alt={`Artwork ${index + 1}`} />
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
   </section>
