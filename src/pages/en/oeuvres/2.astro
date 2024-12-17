@@ -7,7 +7,7 @@ import PhotoSwipeGallery from '../../../components/PhotoSwipeGallery.astro'
 // Get current page number from the filename (e.g., "1" for 1.astro)
 const currentPage = parseInt(Astro.params.pageNumber || '2', 10)
 const totalPages = 13 // Set this to the total number of pages you have
-const galleryColumns = 2
+const galleryColumns = 1
 
 // Pagination URLs
 const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
@@ -24,10 +24,28 @@ For this first prototype, we focused on a few women who had relationships with t
 
 Thanks to augmented reality, it is possible to give a voice back to these figures, forgotten or distorted by the famous artist.
 
-• Put on the headphones
-• Open the La Fin des Paillassons app on your phone
-• Point at the painting that interests you
-• Enjoy your experience!
+<h4 class="text-lg font-semibold">Listen to the testimonies:</h4>
+<div class="flex flex-col gap-1">
+  <p class="text-gray-400 text-sm leading-normal m-2">Dora Maar</p>
+  <audio controls class="block w-full m-0 p-0">
+    <source src="/assets/audio/la-fin-des-paillassons/Dora Maar v1.wav" type="audio/wav" />
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+</div>
+<div class="flex flex-col gap-1">
+  <p class="text-gray-400 text-sm leading-normal m-2">Marie-Thérèse Walter</p>
+  <audio controls class="block w-full m-0 p-0">
+    <source src="/assets/audio/la-fin-des-paillassons/Marie-Thérèse Walter v1.mp3" type="audio/mpeg" />
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+</div>
+<div class="flex flex-col gap-1">
+  <p class="text-gray-400 text-sm leading-normal m-2">Olga Khokhlova</p>
+  <audio controls class="block w-full m-0 p-0">
+    <source src="/assets/audio/la-fin-des-paillassons/Olga Khokhlova version finale 2.mp3" type="audio/mpeg" />
+    Votre navigateur ne supporte pas la lecture audio.
+  </audio>
+</div>
 
 The testimonies you will hear were written; they are not verbatim accounts, with a few exceptions. However, the content has been extensively documented to provide an interpretation as faithful as possible to the mentioned facts.
 
