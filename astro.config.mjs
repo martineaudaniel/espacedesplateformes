@@ -15,4 +15,6 @@ export default defineConfig({
     }),
     compress(),
   ],
+  site: 'https://web.bib.umontreal.ca/espacedesplateformes/',
+  base: '/espacedesplateformes/',
 })
