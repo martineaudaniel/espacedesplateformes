@@ -8,10 +8,12 @@ const currentPage = parseInt(Astro.params.pageNumber || '1', 10)
 const totalPages = 13
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Début de la visite',
@@ -79,24 +81,33 @@ Cette exposition, issue de plusieurs horizons disciplinaires, postures et aires 
   Katharina Niemeyer et Christine Thoër
   `,
   images: [
-    { src: '/assets/img/logos/plateformes-et-usages.png', url: 'https://plateformesetusages.labocinemedias.ca/' },
     {
-      src: '/assets/img/logos/carrefour-des-arts-et-des-sciences.png',
+      src: `${basePath}assets/img/logos/plateformes-et-usages.png`,
+      url: 'https://plateformesetusages.labocinemedias.ca/',
+    },
+    {
+      src: `${basePath}assets/img/logos/carrefour-des-arts-et-des-sciences.png`,
       url: 'https://fas.umontreal.ca/salles/carrefour/',
     },
-    { src: '/assets/img/logos/canada.png', url: 'https://www.canada.ca/' },
-    { src: '/assets/img/logos/labo-tele.png', url: 'https://labotele.com/' },
+    { src: `${basePath}assets/img/logos/canada.png`, url: 'https://www.canada.ca/' },
+    { src: `${basePath}assets/img/logos/labo-tele.png`, url: 'https://labotele.com/' },
     {
-      src: '/assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg',
+      src: `${basePath}assets/img/logos/centre-de-recherche-interuniversitaire-sur-les-humanites-numeriques.jpeg`,
       url: 'https://www.crihn.org/',
     },
-    { src: '/assets/img/logos/ludov.png', url: 'https://www.ludov.ca/' },
-    { src: '/assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg', url: 'https://www.sshrc-crsh.gc.ca/' },
+    { src: `${basePath}assets/img/logos/ludov.png`, url: 'https://www.ludov.ca/' },
     {
-      src: '/assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg',
+      src: `${basePath}assets/img/logos/conseil-re-recherches-en-sciences-humaines.jpg`,
+      url: 'https://www.sshrc-crsh.gc.ca/',
+    },
+    {
+      src: `${basePath}assets/img/logos/departement-histoire-de-lart-et-etudes-cinematographiques.jpg`,
       url: 'https://histart.umontreal.ca/accueil/',
     },
-    { src: '/assets/img/logos/laboratoire-innovation.png', url: 'https://laboinnovation.umontreal.ca/accueil/' },
+    {
+      src: `${basePath}assets/img/logos/laboratoire-innovation.png`,
+      url: 'https://laboinnovation.umontreal.ca/accueil/',
+    },
   ],
 }
 ---

@@ -10,19 +10,21 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}en/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Communauté balletomane par l’image. Narration des identités des balletomanes sur Instagram',
   subtitle: 'Marie-Caroline Neuvillers-Prudhon et Gaëtan Rivière',
   description: `Based on ongoing research on the digital and creative practices of ballet enthusiasts on Instagram, this project gathers 1,452 photographs from 11 accounts dedicated to the world of ballet and classical dance. Arranged in a mosaic format, these images represent digital pantheons, created by those who often update their accounts daily. The platform thus becomes a means to showcase their knowledge of the aesthetic and symbolic codes and norms of their community, as well as a way to construct a narrative of their identity within a process of digital creativity.`,
   images: [
-    '/assets/img/communaute-balletomane-par-limage/1.jpg',
-    '/assets/img/communaute-balletomane-par-limage/2.jpg',
-    '/assets/img/communaute-balletomane-par-limage/3.jpg',
+    `${basePath}assets/img/communaute-balletomane-par-limage/1.jpg`,
+    `${basePath}assets/img/communaute-balletomane-par-limage/2.jpg`,
+    `${basePath}assets/img/communaute-balletomane-par-limage/3.jpg`,
   ],
 }
 ---

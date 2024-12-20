@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Scènes du déclic',
@@ -25,7 +27,7 @@ Les séries comportent parfois des histoires ou dialogues qui nous marquent, qui
 Cette installation vous invite à plonger dans l’univers du déclic de plusieurs personnes interviewées dont vous entendez la voix originale. Leurs noms ont été changés et la tonalité de leur voix légèrement modifiée pour préserver leur anonymat. 
 
 Scènes du déclic: <a href="https://series.uqam.ca/exposition/">https://series.uqam.ca/exposition/</a>`,
-  images: ['/assets/img/scenes-du-declic/1.jpg', '/assets/img/scenes-du-declic/2.jpg'],
+  images: [`${basePath}/assets/img/scenes-du-declic/1.jpg`, `${basePath}/assets/img/scenes-du-declic/2.jpg`],
   notes: [
     'Conception et recherche : Christine Thoër et Katharina Niemeyer',
     'Montage sonore : Ezra Teboul',

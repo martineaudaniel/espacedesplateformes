@@ -9,10 +9,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'La Fin des Paillassons',
@@ -27,21 +29,21 @@ Grâce à la réalité augmentée, il est possible de redonner une voix à ces f
 <div class="flex flex-col gap-1">
   <p class="text-gray-400 text-sm leading-normal m-2">Dora Maar</p>
   <audio controls class="block w-full m-0 p-0">
-    <source src="/assets/audio/la-fin-des-paillassons/Dora Maar v1.wav" type="audio/wav" />
+    <source src="${basePath}assets/audio/la-fin-des-paillassons/Dora Maar v1.wav" type="audio/wav" />
     Votre navigateur ne supporte pas la lecture audio.
   </audio>
 </div>
 <div class="flex flex-col gap-1">
   <p class="text-gray-400 text-sm leading-normal m-2">Marie-Thérèse Walter</p>
   <audio controls class="block w-full m-0 p-0">
-    <source src="/assets/audio/la-fin-des-paillassons/Marie-Thérèse Walter v1.mp3" type="audio/mpeg" />
+    <source src="${basePath}assets/audio/la-fin-des-paillassons/Marie-Thérèse Walter v1.mp3" type="audio/mpeg" />
     Votre navigateur ne supporte pas la lecture audio.
   </audio>
 </div>
 <div class="flex flex-col gap-1">
   <p class="text-gray-400 text-sm leading-normal m-2">Olga Khokhlova</p>
   <audio controls class="block w-full m-0 p-0">
-    <source src="/assets/audio/la-fin-des-paillassons/Olga Khokhlova version finale 2.mp3" type="audio/mpeg" />
+    <source src="${basePath}assets/audio/la-fin-des-paillassons/Olga Khokhlova version finale 2.mp3" type="audio/mpeg" />
     Votre navigateur ne supporte pas la lecture audio.
   </audio>
 </div>
@@ -49,9 +51,9 @@ Les témoignages que vous entendrez ont été écrits, il ne s’agit pas de par
 
 <b>ATTENTION</b> : En raison des sujets abordés, certaines expériences peuvent heurter la sensibilité du public. Si vous souhaitez connaître la nature des propos en amont, veuillez vous référer à la note de bas de page<sup>1</sup>.`,
   images: [
-    '/assets/img/la-fin-des-paillassons/1.jpg',
-    '/assets/img/la-fin-des-paillassons/2.jpg',
-    '/assets/img/la-fin-des-paillassons/3.jpg',
+    `${basePath}assets/img/la-fin-des-paillassons/1.jpg`,
+    `${basePath}assets/img/la-fin-des-paillassons/2.jpg`,
+    `${basePath}assets/img/la-fin-des-paillassons/3.jpg`,
   ],
   notes: [
     'Le tableau représentant Marie-Thérèse Walter traite de la pédocriminalité et de suicide.',

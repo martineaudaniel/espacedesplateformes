@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'La télécommande',
@@ -24,7 +26,7 @@ La télécommande que nous voyons dans cette vitrine, par exemple, intègre dés
 
 Pour approfondir:
 <a href="https://encyclo-technes.org/fr/parcours/tous/transition-multichaine" target="_blank">https://encyclo-technes.org/fr/parcours/tous/transition-multichaine</a>`,
-  images: ['/assets/img/la-telecommande/1.jpg', '/assets/img/la-telecommande/2.jpg'],
+  images: [`${basePath}/assets/img/la-telecommande/1.jpg`, `${basePath}/assets/img/la-telecommande/2.jpg`],
 }
 ---
 

@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'L’espace de visionnement comme espace intime : Projection de photographies d’étudiantes et d’étudiants ',
@@ -22,17 +24,17 @@ const artwork = {
 
 Dans ces photographies, prises par des usagers et usagères qui ont voulu partager leur espace de visionnement maison de cinéma et de télévision, le classique téléviseur, l’écran d’ordinateur, la tablette, le téléphone ou la console de jeu deviennent les composantes d’un rituel quotidien adapté à des besoins différents. On voit bien que l’expérience de visionnement dépend d’une maîtrise individuelle des technologies et des conditions matérielles et économiques dont nous bénéficions pour avoir accès aux plateformes, qui nous permettent de nous construire un espace, tout en profitant du plaisir de se retrouver chez nous, attractive parfois bien plus puissante que de se rendre dans une salle de cinéma... et le confort de l’espace dans lequel se déroule l’expérience de visionnement prime souvent sur le contenu... `,
   images: [
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/1.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/2.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/3.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/4.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/5.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/6.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/7.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/8.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg',
-    '/assets/img/lespace-de-visionnement-comme-espace-intime/11.jpg',
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/1.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/2.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/3.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/4.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/5.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/6.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/7.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/8.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/9.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg`,
+    `${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/11.jpg`,
   ],
   notes: ['Carl', 'Greta', 'Myriam', 'Philippe', 'Valérie', 'Contributrices et contributeurs anonymes'],
 }

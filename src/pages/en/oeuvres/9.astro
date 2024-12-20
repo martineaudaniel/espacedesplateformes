@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}en/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'La télécommande',
@@ -24,7 +26,7 @@ The remote control we see in this display case, for example, now includes button
 
 To learn more:
 <a href="https://encyclo-technes.org/en/parcours/all/multi-channel-transition" target="_blank">https://encyclo-technes.org/en/parcours/all/multi-channel-transition</a>`,
-  images: ['/assets/img/la-telecommande/1.jpg', '/assets/img/la-telecommande/2.jpg'],
+  images: [`${basePath}/assets/img/la-telecommande/1.jpg`, `${basePath}/assets/img/la-telecommande/2.jpg`],
 }
 ---
 

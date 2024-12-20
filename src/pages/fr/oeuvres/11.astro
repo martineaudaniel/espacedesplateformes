@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Mi papá y el hombre del paquete 10 vignettes, 46 x 46 cm chacune, noir et blanc',
@@ -26,16 +28,16 @@ Designer, animateur et artiste visuel, Sánchez utilise Instagram comme principa
 
 @dariensanchez_ giphy.com/darienson canva.com/p/dariensan/`,
   images: [
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/1.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/2.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/3.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/4.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/5.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/6.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/7.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/8.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/9.png',
-    '/assets/img/mi-papa-y-el-hombre-del-paquete/10.png',
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/1.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/2.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/3.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/4.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/5.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/6.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/7.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/8.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/9.png`,
+    `${basePath}/assets/img/mi-papa-y-el-hombre-del-paquete/10.png`,
   ],
 }
 ---

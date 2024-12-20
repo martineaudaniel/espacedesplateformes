@@ -2,13 +2,15 @@
 import { DarkMode } from 'accessible-astro-components'
 import { Image } from 'astro:assets'
 import logo from '../assets/img/logo.svg'
+
+const basePath = import.meta.env.BASE_URL
 ---
 
 <div id="main-navigation" class="py-8">
   <div class="container">
-    <a href="/" class="flex items-center gap-2 !no-underline">
+    <a href={`${basePath}`} class="flex items-center gap-2 !no-underline">
       <Image
-        src="/icons/home.svg"
+        src=`${basePath}/icons/home.svg`
         alt="Home"
         width="47"
         height="37"

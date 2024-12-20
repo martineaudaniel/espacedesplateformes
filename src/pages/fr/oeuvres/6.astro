@@ -10,16 +10,18 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Vidéos de YouTubers',
   subtitle: 'Joyce Cimper',
   description: `Les ambiances sont des arrangements sonores mêlant divers bruits afin de recréer l’atmosphère des lieux culte d’une œuvre télévisuelle telle que les chambres des personnages principaux ou le café où ceux-ci ont coutume de se retrouver. Les extraits de dialogues, fréquents dans ces créations audio, renforcent le sentiment d’être auprès des protagonistes, d’être assez proche d’elleux pour entendre leurs conversations et y prendre part. Les ASMR roleplay permettent également de passer un temps privilégié en compagnie de ses protagonistes favoris. Les ASMRtistes incarnent dans ces créations des héros de fiction. Iels maintiennent un contact visuel avec les spectateurs/ trices en regardant l’objectif de la caméra. Iels s’adressent directement à elleux, leur posant des questions et réagissant à leurs réponses, toujours à voix basse puisque le but de l’ASMR est d’induire un état de relaxation. Ultimement, les ASMR roleplay visent autant à détendre le public qu’à lui proposer des scénarios à même de prolonger les trames narratives développées au sein de la série. Les vidéos de shifting ont, pour leur part, pour objectif d’aider chacun.e à transiter du monde du réel vers l’univers fictionnel de son choix. Des directives précises peuvent être fournies au public. La plupart des vidéos couplent, cependant, les musiques de la série à des images subliminales, permettant aux spectateurs/trices de visualiser les protagonistes avec lesquels iels interagiront ainsi que les espaces au sein desquels iels pourront vivre les aventures qu’iels souhaitent une fois la réalité qu’iels désirent atteinte.`,
-  images: ['/assets/img/videos-de-youtubers/1.jpg', '/assets/img/videos-de-youtubers/2.jpg'],
+  images: [`${basePath}/assets/img/videos-de-youtubers/1.jpg`, `${basePath}/assets/img/videos-de-youtubers/2.jpg`],
 }
 ---
 

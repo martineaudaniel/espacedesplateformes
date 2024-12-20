@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}en/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Scènes du déclic',
@@ -25,7 +27,7 @@ Sometimes, series include stories or dialogues that resonate with us, reflecting
 This installation invites you to dive into the spark moments of several interviewees, whose original voices you will hear. Their names have been changed, and the tone of their voices has been slightly modified to preserve their anonymity.
 
 Scènes du déclic: <a href="https://series.uqam.ca/exposition/">https://series.uqam.ca/exposition/</a>`,
-  images: ['/assets/img/scenes-du-declic/1.jpg', '/assets/img/scenes-du-declic/2.jpg'],
+  images: [`${basePath}assets/img/scenes-du-declic/1.jpg`, `${basePath}assets/img/scenes-du-declic/2.jpg`],
   notes: [
     'Design and research: Christine Thoër and Katharina Niemeyer',
     'Sound editing: Ezra Teboul',

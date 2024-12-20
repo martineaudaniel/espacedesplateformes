@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}en/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Obsolescence',
@@ -37,10 +39,10 @@ Major system changes can render a product or technology unusable. This includes 
 
 Obsolescence, often used as a sales strategy, is a true scourge for the environment, creating millions of tons of waste that could be avoided. Designers who create products and the companies that produce them bear significant responsibility, but as consumers, we also have a role to play. When purchasing new products, it is essential to check their durability, ensure that we are buying something we will still use in several years, and confirm that its design will remain timeless. Electronic products that allow for the replacement of defective or less efficient parts should be prioritized.`,
   images: [
-    '/assets/img/obsolescence/1.jpg',
-    '/assets/img/obsolescence/2.jpg',
-    '/assets/img/obsolescence/3.jpg',
-    '/assets/img/obsolescence/4.png',
+    `${basePath}/assets/img/obsolescence/1.jpg`,
+    `${basePath}/assets/img/obsolescence/2.jpg`,
+    `${basePath}/assets/img/obsolescence/3.jpg`,
+    `${basePath}/assets/img/obsolescence/4.png`,
   ],
   notes: [
     'Guiltinan, J. Creative Destruction and Destructive Creations: Environmental Ethics and Planned Obsolescence. J Bus Ethics 89 (Suppl 1), 19–28 (2009). https://doi.org/10.1007/s10551- 008-9907-9',
@@ -108,7 +110,10 @@ Obsolescence, often used as a sales strategy, is a true scourge for the environm
 
     <div class="container">
       <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
-        <a href="/en/start" class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6">
+        <a
+          href=`${import.meta.env.BASE_URL}en/start`
+          class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6"
+        >
           Return to the beginning of the tour</a
         >
       </div>

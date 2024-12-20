@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 2
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/fr/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/fr/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/fr/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/fr/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}fr/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}fr/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}fr/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Les plateformes à domicile',
@@ -22,11 +24,11 @@ const artwork = {
 
 Cependant, ce « goût du foyer » n’est pas à la portée de tout le monde : la pauvreté, le manque de ressources d’alphabétisation et d’électricité entretiennent un fossé numérique, ou l’écart existant entre les pays développés et les pays en voie de développement, en matière d’accès aux technologies de l’information et de la communication persiste au point que, selon The Guardian, plus d’un tiers de la population mondiale n’a jamais utilisé Internet.`,
   images: [
-    '/assets/img/les-plateformes-a-domicile/1.jpg',
-    '/assets/img/les-plateformes-a-domicile/2.jpg',
-    '/assets/img/les-plateformes-a-domicile/3.jpg',
-    '/assets/img/les-plateformes-a-domicile/4.jpg',
-    '/assets/img/les-plateformes-a-domicile/5.jpg',
+    `${basePath}/assets/img/les-plateformes-a-domicile/1.jpg`,
+    `${basePath}/assets/img/les-plateformes-a-domicile/2.jpg`,
+    `${basePath}/assets/img/les-plateformes-a-domicile/3.jpg`,
+    `${basePath}/assets/img/les-plateformes-a-domicile/4.jpg`,
+    `${basePath}/assets/img/les-plateformes-a-domicile/5.jpg`,
   ],
 }
 ---

@@ -10,10 +10,12 @@ const totalPages = 13 // Set this to the total number of pages you have
 const galleryColumns = 1
 
 // Pagination URLs
-const firstPage = currentPage > 1 ? '/en/oeuvres/1' : null
-const previousPage = currentPage > 1 ? `/en/oeuvres/${currentPage - 1}` : null
-const nextPage = currentPage < totalPages ? `/en/oeuvres/${currentPage + 1}` : null
-const lastPage = currentPage < totalPages ? `/en/oeuvres/${totalPages}` : null
+const basePath = import.meta.env.BASE_URL // Dynamically retrieve the base path
+
+const firstPage = currentPage > 1 ? `${basePath}en/oeuvres/1` : null
+const previousPage = currentPage > 1 ? `${basePath}en/oeuvres/${currentPage - 1}` : null
+const nextPage = currentPage < totalPages ? `${basePath}en/oeuvres/${currentPage + 1}` : null
+const lastPage = currentPage < totalPages ? `${basePath}en/oeuvres/${totalPages}` : null
 
 const artwork = {
   title: 'Video games in the home',
@@ -21,7 +23,7 @@ const artwork = {
   description: `The general public was introduced to video games in 1972 through the PONG arcade machines. The American company Atari entered the home market with its Home PONG, first sold by Sears under the name Tele-Games, in 1975. Following its success, Atari released successors (Super PONG, Ultra PONG, etc.), and dozens of other manufacturers launched their own lines, saturating the market with over a hundred models within three years (including Coleco's Telstar, Radio Shack's TV Scoreboard, Intel's TV Sport, Canadian Tire's Video Sports in Canada, Occitane's Occitel in France, and Nintendo's TV-Game 6 in Japan). These early devices used integrated circuits: each machine was built for a single game (and variations), like a mini arcade machine for the home.
   
 With the arrival of programmable microprocessors, new devices (such as Fairchild’s Channel F, Atari’s Video Computer System/VCS, Mattel's Intellivision, and Coleco’s ColecoVision) became long-lasting due to interchangeable game cartridges, following the model of the record player or VHS player. The game console became part of home decor (as shown by the wood finish of many models). Since cartridges were not cross-compatible and televisions weren’t designed to host multiple devices simultaneously, competition between consoles, along with affordable personal computers that connected to the TV (such as Texas Instruments' TI-99/4 or Commodore's Commodore 64), meant that each new platform had to dethrone its predecessor. Before long, it was the closet, attic, or garage that stored the outdated machines in boxes once covered with promises of technological revolution.`,
-  images: ['/assets/img/pong/1.jpg'],
+  images: [`${basePath}assets/img/pong/1.jpg`],
 }
 ---
 

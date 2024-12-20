@@ -1,6 +1,8 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import Thumbnail from '../../components/Thumbnail.astro'
+
+const basePath = import.meta.env.BASE_URL
 ---
 
 <DefaultLayout title="Home">
@@ -8,9 +10,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
     <div class="container">
       <div class="container">
         <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
-          <a href="/en/oeuvres/1" class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6">
-            Start the tour</a
-          >
+          <a href={`${basePath}en/oeuvres/1`} class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6">
+            Start the tour
+          </a>
         </div>
       </div>
 
@@ -42,9 +44,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
       <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/2">
+            <a href={`${basePath}fr/oeuvres/2`}>
               <img
-                src="/assets/img/la-fin-des-paillassons/1.jpg"
+                src={`${basePath}assets/img/la-fin-des-paillassons/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -53,9 +55,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/3">
+            <a href={`${basePath}fr/oeuvres/3`}>
               <img
-                src="/assets/img/la-peur-de-la-mere-patrie/1.jpg"
+                src={`${basePath}assets/img/la-peur-de-la-mere-patrie/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -64,9 +66,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/4">
+            <a href={`${basePath}fr/oeuvres/4`}>
               <img
-                src="/assets/img/scenes-du-declic/2.jpg"
+                src={`${basePath}assets/img/scenes-du-declic/2.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -75,9 +77,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/5">
+            <a href={`${basePath}fr/oeuvres/5`}>
               <img
-                src="/assets/img/communaute-balletomane-par-limage/1.jpg"
+                src={`${basePath}assets/img/communaute-balletomane-par-limage/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -86,9 +88,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/6">
+            <a href={`${basePath}fr/oeuvres/6`}>
               <img
-                src="/assets/img/videos-de-youtubers/1.jpg"
+                src={`${basePath}assets/img/videos-de-youtubers/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -97,16 +99,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/7">
-              <img src="/assets/img/pong/1.jpg" alt="Description of the image" class="h-full w-full object-cover" />
-            </a>
-          </div>
-        </Thumbnail>
-        <Thumbnail icon="mdi:tailwind" title="">
-          <div class="aspect-square">
-            <a href="/fr/oeuvres/8">
+            <a href={`${basePath}fr/oeuvres/7`}>
               <img
-                src="/assets/img/les-plateformes-a-domicile/1.jpg"
+                src={`${basePath}assets/img/pong/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -115,9 +110,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/9">
+            <a href={`${basePath}fr/oeuvres/8`}>
               <img
-                src="/assets/img/la-telecommande/2.jpg"
+                src={`${basePath}assets/img/les-plateformes-a-domicile/1.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -126,9 +121,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/10">
+            <a href={`${basePath}fr/oeuvres/9`}>
               <img
-                src="/assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg"
+                src={`${basePath}assets/img/la-telecommande/2.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -137,9 +132,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/11">
+            <a href={`${basePath}fr/oeuvres/10`}>
               <img
-                src="/assets/img/mi-papa-y-el-hombre-del-paquete/11.jpg"
+                src={`${basePath}assets/img/lespace-de-visionnement-comme-espace-intime/10.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -148,9 +143,9 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/12">
+            <a href={`${basePath}fr/oeuvres/11`}>
               <img
-                src="/assets/img/art-statement-feminist-sonographies-of-situated-listening/1.jpg"
+                src={`${basePath}assets/img/mi-papa-y-el-hombre-del-paquete/11.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -159,9 +154,20 @@ import Thumbnail from '../../components/Thumbnail.astro'
         </Thumbnail>
         <Thumbnail icon="mdi:tailwind" title="">
           <div class="aspect-square">
-            <a href="/fr/oeuvres/13">
+            <a href={`${basePath}fr/oeuvres/12`}>
               <img
-                src="/assets/img/obsolescence/1.png"
+                src={`${basePath}assets/img/art-statement-feminist-sonographies-of-situated-listening/1.jpg`}
+                alt="Description of the image"
+                class="h-full w-full object-cover"
+              />
+            </a>
+          </div>
+        </Thumbnail>
+        <Thumbnail icon="mdi:tailwind" title="">
+          <div class="aspect-square">
+            <a href={`${basePath}fr/oeuvres/13`}>
+              <img
+                src={`${basePath}assets/img/obsolescence/3.jpg`}
                 alt="Description of the image"
                 class="h-full w-full object-cover"
               />
@@ -171,34 +177,4 @@ import Thumbnail from '../../components/Thumbnail.astro'
       </div>
     </div>
   </section>
-  <!--
-  <ContentMedia imgSrc="/accessible-components.webp">
-    <h2>Accessible Components</h2>
-    <p class="text-2xl">
-      This theme provides plenty of tried and tested Accessible Astro Components. Some are native to this theme and a
-      lot of others are integrated using a <a href="https://github.com/markteekman/accessible-astro-components"
-        >separate package</a
-      >. They'll get you up and running in building an accessible solution for your visitors.
-    </p>
-  </ContentMedia>
-  <ContentMedia imgSrc="/wcag-compliant.webp" reverseImg={true}>
-    <h2>WCAG 2.1 AA Compliant</h2>
-    <p class="text-2xl">
-      Using semantic HTML, landmarks, skip links, screen reader friendly content, aria-labels, keyboard accessible
-      navigation and components, clear outlines and tab indicators and the right color contrast, you're more certain of
-      reaching WCAG AA compliance.
-    </p>
-  </ContentMedia>
-  <section class="mb-32 mt-64">
-    <div class="container">
-      <h2 class="mb-16 text-6xl">Counters</h2>
-      <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 md:grid-cols-4">
-        <Counter count="520" title="Stars" sub="On GitHub" />
-        <Counter count="17" title="Accessible" sub="Components" />
-        <Counter count="500" title="Commits" sub="Merged" />
-        <Counter count="18+" title="Months" sub="Since launch" />
-      </div>
-    </div>
-  </section>
-   -->
 </DefaultLayout>

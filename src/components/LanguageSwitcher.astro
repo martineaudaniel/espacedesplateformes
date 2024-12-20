@@ -1,19 +1,24 @@
 ---
-// src/components/LanguageSwitcher.astro
+const basePath = import.meta.env.BASE_URL
 
-const currentPath = Astro.url.pathname
-const currentLang = currentPath.startsWith('/fr') ? 'fr' : 'en'
+// Extract the current path without the base path for easier manipulation
+const currentPath = Astro.url.pathname.replace(basePath, '')
 
+// Determine the current language based on the remaining path
+const currentLang = currentPath.startsWith(`fr`) ? 'fr' : 'en'
+
+// Define the supported languages
 const languages = [
-  { lang: 'en', label: 'En', flag: '/icons/en.svg' },
-  { lang: 'fr', label: 'Fr', flag: '/icons/fr.svg' },
+  { lang: 'en', label: 'En', flag: `${basePath}icons/en.svg` },
+  { lang: 'fr', label: 'Fr', flag: `${basePath}icons/fr.svg` },
 ]
 
-const togglePath = (lang) => currentPath.replace(`/${currentLang}/`, `/${lang}/`)
+// Function to toggle language paths, including the base path
+const togglePath = (lang) => `${basePath}${currentPath.replace(`${currentLang}`, `${lang}`)}`
 ---
 
 <div class="relative inline-block">
-  <!-- Active Language Button with existing button styles -->
+  <!-- Active Language Button -->
   <button data-dropdown-button class="button LanguageDropdownButton has-icon p-2">
     <img src={languages.find((l) => l.lang === currentLang).flag} alt="" class="h-5 w-5" />
     <span>{languages.find((l) => l.lang === currentLang).label}</span>
@@ -50,7 +55,7 @@ const togglePath = (lang) => currentPath.replace(`/${currentLang}/`, `/${lang}/`
 
     console.log('Initializing dropdown')
 
-    // Define the toggleDropdown function first
+    // Define the toggleDropdown function
     function toggleDropdown(event) {
       event.stopPropagation() // Prevent immediate outside close
       isDropdownOpen = !dropdownMenu.classList.contains('hidden')
