@@ -24,7 +24,8 @@ const basePath = import.meta.env.BASE_URL
           <slot />
         </ul>
       </nav>
-      <DarkMode />
+      <!-- Forces dark mode on first visit -->
+      <DarkMode initialMode="dark" />
     </div>
   </div>
 </div>
