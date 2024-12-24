@@ -55,25 +55,36 @@ Obsolescence, often used as a sales strategy, is a true scourge for the environm
 <DefaultLayout title={artwork.title}>
   <section class="my-16">
     <style lang="scss">
-      .call-to-action {
-        /* Remove background styling here */
+      :root {
+        --focus-bg-color: var(--primary-100); /* Light mode focus background */
+        --focus-text-color: var(--neutral-900); /* Light mode focus text */
+        --call-to-action-border: var(--primary-300); /* Light mode border color */
+      }
+
+      body.darkmode {
+        --focus-bg-color: var(--neutral-700); /* Dark mode focus background */
+        --focus-text-color: var(--neutral-100); /* Dark mode focus text */
+        --call-to-action-border: var(--secondary-300); /* Dark mode border color */
       }
 
       .call-to-action-link {
-        padding: 1rem; /* Adjust padding as needed */
+        padding: 1rem;
         color: var(--neutral-900);
         font-weight: bold;
-        border: 5px solid var(--secondary-300); /* Increase border thickness here */
+        border: 5px solid var(--call-to-action-border); /* Ensure border color remains dynamic */
         border-radius: 3px;
         text-decoration: none;
         width: 400px;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
         &:hover,
         &:focus {
-          color: var(--neutral-100);
-          background-color: var(--neutral-900);
+          background-color: var(--focus-bg-color); /* Dynamic focus background */
+          color: var(--focus-text-color); /* Dynamic focus text color */
           text-decoration: underline;
+
+          /* Explicitly retain the border color */
+          border-color: var(--call-to-action-border);
         }
       }
     </style>
