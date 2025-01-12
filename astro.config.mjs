@@ -6,14 +6,14 @@ import icon from 'astro-icon'
 
 // https://astro.build/config
 export default defineConfig({
-  compressHTML: true,
+  compressHTML: false,
   integrations: [
     mdx(),
     icon(),
     tailwind({
       applyBaseStyles: false,
     }),
-    compress(),
+    compress({ HTML: false }),
   ],
   site: 'https://web.bib.umontreal.ca/espacedesplateformes/',
   base: '/espacedesplateformes/',
