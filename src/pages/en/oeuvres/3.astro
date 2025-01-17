@@ -43,7 +43,7 @@ To watch the video, please click on the following link:
 ---
 
 <DefaultLayout title={artwork.title}>
-  <section class="my-16">
+  <section class="mb-8 mt-16">
     <div class="container mx-auto flex gap-8">
       <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
       <div class="flex-1 p-8">
@@ -62,7 +62,7 @@ To watch the video, please click on the following link:
   </section>
 
   <!-- Pagination -->
-  <div class="mt-12 grid place-content-center">
+  <div class="mt-4 grid place-content-center">
     <Pagination
       firstPage={firstPage}
       previousPage={previousPage}
@@ -71,5 +71,16 @@ To watch the video, please click on the following link:
       currentPage={currentPage}
       totalPages={totalPages}
     />
+  </div>
+
+  <div class="container">
+    <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
+      <a
+        href=`${import.meta.env.BASE_URL}en/start`
+        class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6"
+      >
+        Return to the beginning of the tour</a
+      >
+    </div>
   </div>
 </DefaultLayout>

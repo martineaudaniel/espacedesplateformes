@@ -26,7 +26,7 @@ const artwork = {
 ---
 
 <DefaultLayout title={artwork.title}>
-  <section class="my-16">
+  <section class="mb-8 mt-16">
     <div class="container mx-auto">
       <!-- Two-column layout: Image Gallery and Text Content -->
       <div class="flex gap-8">
@@ -110,17 +110,6 @@ const artwork = {
           <div class="mt-4">
             <iframe
               class="aspect-video w-full"
-              src="https://www.youtube.com/embed/ktYhy5PyjhI"
-              title="Reality shift to Euphoria subliminal"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            >
-            </iframe>
-          </div>
-          <div class="mt-4">
-            <iframe
-              class="aspect-video w-full"
               src="https://www.youtube.com/embed/OVFv4KrzQYs"
               title="SQUID GAME - Méditation guidée"
               frameborder="0"
@@ -135,7 +124,7 @@ const artwork = {
   </section>
 
   <!-- Pagination -->
-  <div class="mt-12 grid place-content-center">
+  <div class="mt-4 grid place-content-center">
     <Pagination
       firstPage={firstPage}
       previousPage={previousPage}
@@ -144,5 +133,16 @@ const artwork = {
       currentPage={currentPage}
       totalPages={totalPages}
     />
+  </div>
+
+  <div class="container">
+    <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
+      <a
+        href=`${import.meta.env.BASE_URL}fr/start`
+        class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6"
+      >
+        Retourner au début de la visite</a
+      >
+    </div>
   </div>
 </DefaultLayout>

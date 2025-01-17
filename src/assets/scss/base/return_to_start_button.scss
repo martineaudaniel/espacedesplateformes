@@ -1,0 +1,31 @@
+/* Styles moved from artwork1.astro */
+:root {
+  --focus-bg-color: var(--primary-100);
+  --focus-text-color: var(--neutral-900);
+  --call-to-action-border: var(--primary-300);
+}
+
+body.darkmode {
+  --focus-bg-color: var(--neutral-700);
+  --focus-text-color: var(--neutral-100);
+  --call-to-action-border: var(--secondary-300);
+}
+
+.call-to-action-link {
+  padding: 1rem;
+  color: var(--neutral-900);
+  font-weight: bold;
+  border: 5px solid var(--call-to-action-border);
+  border-radius: 3px;
+  text-decoration: none;
+  width: 400px;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.call-to-action-link:hover,
+.call-to-action-link:focus {
+  background-color: var(--focus-bg-color);
+  color: var(--focus-text-color);
+  text-decoration: underline;
+  border-color: var(--call-to-action-border);
+}

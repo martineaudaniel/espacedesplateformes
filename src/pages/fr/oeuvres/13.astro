@@ -53,42 +53,7 @@ L’obsolescence, souvent employée comme stratégie de vente, est un véritable
 ---
 
 <DefaultLayout title={artwork.title}>
-  <section class="my-16">
-    <style lang="scss">
-      :root {
-        --focus-bg-color: var(--primary-100); /* Light mode focus background */
-        --focus-text-color: var(--neutral-900); /* Light mode focus text */
-        --call-to-action-border: var(--primary-300); /* Light mode border color */
-      }
-
-      body.darkmode {
-        --focus-bg-color: var(--neutral-700); /* Dark mode focus background */
-        --focus-text-color: var(--neutral-100); /* Dark mode focus text */
-        --call-to-action-border: var(--secondary-300); /* Dark mode border color */
-      }
-
-      .call-to-action-link {
-        padding: 1rem;
-        color: var(--neutral-900);
-        font-weight: bold;
-        border: 5px solid var(--call-to-action-border); /* Ensure border color remains dynamic */
-        border-radius: 3px;
-        text-decoration: none;
-        width: 400px;
-        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-
-        &:hover,
-        &:focus {
-          background-color: var(--focus-bg-color); /* Dynamic focus background */
-          color: var(--focus-text-color); /* Dynamic focus text color */
-          text-decoration: underline;
-
-          /* Explicitly retain the border color */
-          border-color: var(--call-to-action-border);
-        }
-      }
-    </style>
-
+  <section class="mb-8 mt-16">
     <div class="container mx-auto flex gap-8">
       <!-- Left Half: Image Gallery (PhotoSwipe Gallery) -->
       <div class="flex-1 p-8">
@@ -118,21 +83,10 @@ L’obsolescence, souvent employée comme stratégie de vente, est un véritable
         </section>
       </div>
     </div>
-
-    <div class="container">
-      <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
-        <a
-          href=`${import.meta.env.BASE_URL}fr/start`
-          class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6"
-        >
-          Retourner au début de la visite</a
-        >
-      </div>
-    </div>
   </section>
 
   <!-- Pagination -->
-  <div class="mt-12 grid place-content-center">
+  <div class="mt-4 grid place-content-center">
     <Pagination
       firstPage={firstPage}
       previousPage={previousPage}
@@ -141,5 +95,16 @@ L’obsolescence, souvent employée comme stratégie de vente, est un véritable
       currentPage={currentPage}
       totalPages={totalPages}
     />
+  </div>
+
+  <div class="container">
+    <div class="call-to-action mb-8 mt-8 flex flex-col items-center rounded-lg">
+      <a
+        href=`${import.meta.env.BASE_URL}fr/start`
+        class="call-to-action-link rounded-lg p-4 text-center text-lg md:p-6"
+      >
+        Retourner au début de la visite</a
+      >
+    </div>
   </div>
 </DefaultLayout>
